@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oscar Osorio — Desarrollador Full-Stack</title>
+<meta name="description" content="Desarrollador full-stack con casi 4 años sosteniendo una plataforma en producción: 6 354 commits, 369 Merge Requests fusionados y un pipeline SDLC con agentes de IA. Datos verificables de la API de GitLab.">
+<meta property="og:title" content="Oscar Osorio — Desarrollador Full-Stack">
+<meta property="og:description" content="6 354 commits · 369 MRs fusionados · 97 % de aceptación · pipeline SDLC con agentes de IA. Métricas reales de la API de GitLab, 2022–2026.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234a3aa7'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='white' text-anchor='middle'%3EOO%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: light;
+    --ground:      #f8f7fa;
+    --card:        #ffffff;
+    --ink:         #191624;
+    --ink-2:       #5b5566;
+    --muted:       #8b8699;
+    --hairline:    #e7e4ef;
+    --accent:      #4a3aa7;
+    --accent-ink:  #3d2f92;
+    --accent-soft: #edeaf8;
+    --track:       #efedf5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --ground:      #131018;
+      --card:        #1a1722;
+      --ink:         #f1eff8;
+      --ink-2:       #aba5bc;
+      --muted:       #7c7690;
+      --hairline:    #2b2637;
+      --accent:      #9085e9;
+      --accent-ink:  #a89ef0;
+      --accent-soft: #262040;
+      --track:       #241f31;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono {
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, monospace;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible, .bar-hit:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: 72px 0 48px; overflow: hidden; }
+  .hero-graph {
+    position: absolute; right: -40px; top: 12px;
+    width: 420px; max-width: 60vw; height: auto;
+    opacity: .5; pointer-events: none;
+  }
+  .gitline {
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: .8rem; color: var(--muted); margin: 0 0 20px;
+    overflow-x: auto; white-space: nowrap;
+  }
+  .gitline b { color: var(--accent-ink); font-weight: 600; }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3.1rem);
+    font-weight: 800; letter-spacing: -.02em; line-height: 1.08;
+    margin: 0 0 8px; text-wrap: balance;
+  }
+  .role { font-size: 1.05rem; color: var(--ink-2); margin: 0 0 14px; }
+  .role .sep { color: var(--muted); padding: 0 .4em; }
+  .contactrow {
+    display: flex; flex-wrap: wrap; gap: 8px 18px;
+    margin: 0 0 22px; padding: 0; list-style: none;
+    font-size: .92rem;
+  }
+  .contactrow a { font-weight: 550; }
+  .lead { max-width: 58ch; font-size: 1.02rem; color: var(--ink-2); margin: 0 0 36px; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px; margin: 0; padding: 0; list-style: none;
+  }
+  .stat {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .stat .v {
+    display: block; font-size: 1.75rem; font-weight: 750; letter-spacing: -.01em;
+    color: var(--accent-ink); font-variant-numeric: tabular-nums; line-height: 1.15;
+  }
+  .stat .k {
+    display: block; font-size: .78rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .07em; margin-top: 4px;
+  }
+  .substat { margin: 14px 2px 0; font-size: .85rem; color: var(--muted); }
+
+  /* ---------- sections ---------- */
+  section { padding: 40px 0; border-top: 1px solid var(--hairline); }
+  .eyebrow {
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, monospace;
+    font-size: .8rem; color: var(--accent-ink); letter-spacing: .04em;
+    margin: 0 0 6px;
+  }
+  h2 {
+    font-size: 1.45rem; font-weight: 700; letter-spacing: -.01em;
+    margin: 0 0 8px; text-wrap: balance;
+  }
+  .sectnote { color: var(--ink-2); font-size: .95rem; max-width: 62ch; margin: 0 0 28px; }
+
+  /* ---------- caso de estudio ---------- */
+  .case {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+  }
+  .casecard {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 10px; padding: 18px 20px;
+  }
+  .casecard h3 {
+    margin: 0 0 8px; font-size: .78rem; color: var(--accent-ink);
+    text-transform: uppercase; letter-spacing: .07em; font-weight: 700;
+  }
+  .casecard p { margin: 0; color: var(--ink-2); font-size: .93rem; }
+  .casecard p strong { color: var(--ink); font-weight: 600; }
+  .caseflow {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .82rem; color: var(--muted);
+    margin: 18px 0 0; overflow-x: auto; white-space: nowrap;
+  }
+  .caseflow b { color: var(--accent-ink); font-weight: 600; }
+
+  /* ---------- chart: años ---------- */
+  .chart-card {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 12px; padding: 24px 24px 18px;
+  }
+  .chart-title { font-size: .92rem; font-weight: 600; margin: 0 0 20px; color: var(--ink); }
+  .years {
+    display: flex; align-items: flex-end; gap: 10%;
+    height: 210px; padding: 0 6%;
+    border-bottom: 2px solid var(--hairline);
+  }
+  .yearcol { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; }
+  .yearcol .num {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .85rem; font-weight: 600; color: var(--ink); margin-bottom: 6px;
+    font-variant-numeric: tabular-nums;
+  }
+  .yearcol .bar {
+    width: 100%; max-width: 84px;
+    background: var(--accent);
+    border-radius: 4px 4px 0 0;
+  }
+  .yearcol .bar.partial {
+    background: var(--accent-soft);
+    box-shadow: inset 0 0 0 2px var(--accent);
+  }
+  .yearlabels { display: flex; gap: 10%; padding: 8px 6% 0; }
+  .yearlabels span {
+    flex: 1; text-align: center;
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .8rem; color: var(--muted);
+  }
+  .chart-foot { font-size: .78rem; color: var(--muted); margin: 14px 0 0; }
+
+  /* ---------- chart: proyectos ---------- */
+  .projrows { display: flex; flex-direction: column; gap: 13px; margin-top: 4px; }
+  .projrow {
+    display: grid; grid-template-columns: minmax(110px, 185px) 1fr 44px;
+    gap: 12px; align-items: center;
+  }
+  .projrow .name {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .8rem; color: var(--ink); text-align: right;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .projrow .track { background: var(--track); border-radius: 4px; height: 18px; }
+  .projrow .fill { background: var(--accent); border-radius: 4px; height: 100%; min-width: 4px; }
+  .projrow.other .fill { background: var(--muted); opacity: .55; }
+  .projrow .val {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .82rem; color: var(--ink-2); font-variant-numeric: tabular-nums;
+  }
+  .bar-hit { cursor: default; }
+
+  details.tablewrap { margin-top: 18px; }
+  details.tablewrap summary {
+    font-size: .8rem; color: var(--muted); cursor: pointer; width: fit-content;
+  }
+  details.tablewrap table {
+    margin-top: 10px; border-collapse: collapse; font-size: .85rem; width: 100%;
+  }
+  details.tablewrap th, details.tablewrap td {
+    text-align: left; padding: 6px 14px 6px 0; border-bottom: 1px solid var(--hairline);
+    font-variant-numeric: tabular-nums;
+  }
+  details.tablewrap th { color: var(--muted); font-weight: 600; font-size: .78rem; }
+  .num-td { text-align: right; }
+
+  /* ---------- stack ---------- */
+  .stackgrid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 12px;
+  }
+  .stackcard {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 10px; padding: 16px 18px;
+  }
+  .stackcard h3 {
+    margin: 0 0 10px; font-size: .78rem; color: var(--muted);
+    text-transform: uppercase; letter-spacing: .07em; font-weight: 650;
+  }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; }
+  .chip {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .78rem; color: var(--accent-ink);
+    background: var(--accent-soft); border-radius: 6px; padding: 3px 9px;
+  }
+
+  /* ---------- proyectos personales / OSS ---------- */
+  .sidegrid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .sidecard {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 10px; padding: 18px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .sidecard h3 { margin: 0; font-size: 1.02rem; font-weight: 700; }
+  .sidecard .status {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .74rem; color: var(--accent-ink);
+    background: var(--accent-soft); border-radius: 6px;
+    padding: 2px 8px; width: fit-content;
+  }
+  .sidecard p { margin: 0; color: var(--ink-2); font-size: .92rem; }
+  .sidecard ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: .9rem; }
+  .sidecard li { margin: 3px 0; }
+  .sidecard .foot { margin-top: auto; font-size: .88rem; }
+
+  /* ---------- prácticas / highlights ---------- */
+  .plist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  .plist li { max-width: 68ch; padding-left: 18px; border-left: 2px solid var(--accent); }
+  .plist b { display: block; font-weight: 650; margin-bottom: 2px; }
+  .plist span { color: var(--ink-2); font-size: .95rem; }
+
+  .hlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .hlist li { display: grid; grid-template-columns: 92px 1fr; gap: 16px; align-items: baseline; }
+  .hlist .when {
+    font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+    font-size: .78rem; color: var(--muted); white-space: nowrap;
+  }
+  .hlist b { font-weight: 650; }
+  .hlist p { margin: 2px 0 0; color: var(--ink-2); font-size: .93rem; max-width: 60ch; }
+  @media (max-width: 560px) {
+    .hlist li { grid-template-columns: 1fr; gap: 2px; }
+    .projrow { grid-template-columns: minmax(90px, 120px) 1fr 40px; }
+  }
+
+  /* ---------- contacto ---------- */
+  .contactband {
+    background: var(--card); border: 1px solid var(--hairline);
+    border-radius: 12px; padding: 26px 28px;
+    display: flex; flex-wrap: wrap; gap: 18px 32px; align-items: center;
+  }
+  .contactband .cta { font-size: 1.05rem; font-weight: 650; margin: 0; }
+  .contactband ul {
+    display: flex; flex-wrap: wrap; gap: 8px 24px;
+    margin: 0; padding: 0; list-style: none; font-size: .95rem;
+  }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--hairline); padding: 32px 0 64px; }
+  footer .links { margin: 0 0 14px; font-size: .95rem; }
+  footer .links .sep { color: var(--muted); padding: 0 .5em; }
+  footer .meta { font-size: .78rem; color: var(--muted); max-width: 68ch; margin: 0; }
+
+  /* ---------- tooltip ---------- */
+  .tip {
+    position: fixed; z-index: 50; pointer-events: none;
+    background: var(--ink); color: var(--ground);
+    font-size: .78rem; line-height: 1.4;
+    padding: 6px 10px; border-radius: 6px;
+    max-width: 260px; opacity: 0; transition: opacity .12s ease;
+  }
+  .tip.show { opacity: 1; }
+  .tip b { font-weight: 650; }
+  @media (prefers-reduced-motion: reduce) {
+    .tip { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <svg class="hero-graph" viewBox="0 0 420 200" aria-hidden="true" fill="none">
+    <path d="M20 40 C 140 40, 180 100, 400 100" stroke="var(--accent)" stroke-width="2" opacity=".35"/>
+    <path d="M20 100 L 400 100" stroke="var(--accent)" stroke-width="2" opacity=".6"/>
+    <path d="M20 160 C 140 160, 180 100, 400 100" stroke="var(--accent)" stroke-width="2" opacity=".35"/>
+    <circle cx="60" cy="40" r="5" fill="var(--accent)" opacity=".5"/>
+    <circle cx="110" cy="47" r="5" fill="var(--accent)" opacity=".5"/>
+    <circle cx="60" cy="160" r="5" fill="var(--accent)" opacity=".5"/>
+    <circle cx="120" cy="151" r="5" fill="var(--accent)" opacity=".5"/>
+    <circle cx="90" cy="100" r="5" fill="var(--accent)" opacity=".7"/>
+    <circle cx="205" cy="100" r="6.5" fill="var(--accent)"/>
+    <circle cx="290" cy="100" r="5" fill="var(--accent)" opacity=".7"/>
+    <circle cx="360" cy="100" r="5" fill="var(--accent)" opacity=".7"/>
+  </svg>
+  <div class="wrap">
+    <p class="gitline">$ git shortlog -sn --all&nbsp;&nbsp;→&nbsp;&nbsp;<b>6 354&nbsp;&nbsp;Oscar Julián Osorio Romero</b></p>
+    <h1>Oscar Julián Osorio Romero</h1>
+    <p class="role">Desarrollador Full-Stack<span class="sep">·</span>Konrradf<span class="sep">·</span>Colombia</p>
+    <ul class="contactrow">
+      <li><a href="mailto:f1000161620@gmail.com">f1000161620@gmail.com</a></li>
+      <li><a href="https://github.com/devmaiter" rel="noopener">github.com/devmaiter</a></li>
+      <li><a href="https://gitlab.com/oscar.osorio.kf" rel="noopener">gitlab.com/oscar.osorio.kf</a></li>
+      <!-- TODO: agregar LinkedIn cuando el perfil esté listo:
+      <li><a href="https://www.linkedin.com/in/TU-PERFIL" rel="noopener">LinkedIn</a></li>
+      -->
+    </ul>
+    <p class="lead">
+      Desde finales de 2022 construyo y mantengo la plataforma de productos de Konrradf —
+      <strong>Avaluosya</strong>, el CMS de páginas y sus paneles de administración — con
+      PHP, Elm, TypeScript y MySQL. Trabajo en ciclos cortos: ramas pequeñas,
+      Merge Requests frecuentes y CI que publica solo.
+    </p>
+    <ul class="stats">
+      <li class="stat"><span class="v">369</span><span class="k">MRs fusionados</span></li>
+      <li class="stat"><span class="v">97 %</span><span class="k">tasa de fusión</span></li>
+      <li class="stat"><span class="v">6 354</span><span class="k">commits</span></li>
+      <li class="stat"><span class="v">15</span><span class="k">repositorios</span></li>
+    </ul>
+    <p class="substat">Además: 88 issues creados y 12 proyectos con MRs fusionados. Datos de la API de GitLab, nov 2022 – jul 2026.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## caso de estudio</p>
+    <h2>Pipeline SDLC con agentes de IA</h2>
+    <p class="sectnote">
+      Diseño y mantengo el pipeline con el que un equipo pequeño automatiza el ciclo de vida
+      completo de un issue de GitLab usando agentes de IA, con revisión humana en cada entrega.
+    </p>
+    <div class="case">
+      <div class="casecard">
+        <h3>Problema</h3>
+        <p>
+          Un equipo reducido mantiene <strong>varios productos en producción</strong> a la vez.
+          Cada issue exigía repetir a mano el mismo ciclo — entender, planificar, implementar,
+          revisar, probar — y la capacidad de revisión era el cuello de botella del ritmo de entrega.
+        </p>
+      </div>
+      <div class="casecard">
+        <h3>Solución</h3>
+        <p>
+          Un <strong>repositorio central de skills, agentes y CI compartidos</strong> sobre Claude Code:
+          los agentes leen el issue, proponen un plan, implementan en una rama con las convenciones
+          del equipo, se revisan entre sí y ejecutan pruebas Playwright. Cada MR pasa por
+          <strong>supervisión humana</strong> antes de fusionarse.
+        </p>
+      </div>
+      <div class="casecard">
+        <h3>Resultado</h3>
+        <p>
+          El ciclo issue → producción quedó automatizado de punta a punta: el equipo
+          <strong>revisa en lugar de teclear</strong>. El ritmo de entrega pasó de 101 MRs fusionados
+          en 2024 a <strong>135 en 2025 (+34 %)</strong>, manteniendo la tasa de aceptación en 97 %.
+        </p>
+      </div>
+    </div>
+    <p class="caseflow">issue → <b>definir</b> → <b>planificar</b> → <b>implementar</b> → <b>revisar</b> → <b>probar</b> → MR → humano aprueba → producción</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## actividad</p>
+    <h2>Ritmo de entrega sostenido y creciente</h2>
+    <p class="sectnote">
+      Los Merge Requests fusionados crecen año tras año: 2025 cerró con 135 —
+      más de 11 por mes — y 2026 lleva 62 a mitad de año.
+    </p>
+    <div class="chart-card">
+      <p class="chart-title">Merge Requests fusionados por año</p>
+      <div class="years" role="img" aria-label="Gráfica de barras: MRs fusionados por año. 2023: 71. 2024: 101. 2025: 135. 2026 hasta julio: 62.">
+        <div class="yearcol"><span class="num">71</span><div class="bar bar-hit" tabindex="0" style="height:52.6%" data-tip="<b>2023</b> · 71 MRs fusionados"></div></div>
+        <div class="yearcol"><span class="num">101</span><div class="bar bar-hit" tabindex="0" style="height:74.8%" data-tip="<b>2024</b> · 101 MRs fusionados"></div></div>
+        <div class="yearcol"><span class="num">135</span><div class="bar bar-hit" tabindex="0" style="height:100%" data-tip="<b>2025</b> · 135 MRs fusionados"></div></div>
+        <div class="yearcol"><span class="num">62</span><div class="bar bar-hit partial" tabindex="0" style="height:45.9%" data-tip="<b>2026</b> · 62 MRs fusionados hasta el 15 de julio"></div></div>
+      </div>
+      <div class="yearlabels" aria-hidden="true"><span>2023</span><span>2024</span><span>2025</span><span>2026*</span></div>
+      <p class="chart-foot">* Año en curso: corte al 15 de julio de 2026.</p>
+      <details class="tablewrap">
+        <summary>Ver datos en tabla</summary>
+        <table>
+          <thead><tr><th scope="col">Año</th><th scope="col" class="num-td">MRs fusionados</th></tr></thead>
+          <tbody>
+            <tr><td>2023</td><td class="num-td">71</td></tr>
+            <tr><td>2024</td><td class="num-td">101</td></tr>
+            <tr><td>2025</td><td class="num-td">135</td></tr>
+            <tr><td>2026 (a jul 15)</td><td class="num-td">62</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## proyectos</p>
+    <h2>Contribución transversal a toda la plataforma</h2>
+    <p class="sectnote">
+      El trabajo cubre desde el sitio público y los paneles de administración hasta el
+      núcleo del framework interno y el versionado de la base de datos.
+    </p>
+    <div class="chart-card">
+      <p class="chart-title">Merge Requests fusionados por proyecto</p>
+      <div class="projrows">
+        <div class="projrow">
+          <span class="name">admin_services</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:100%" data-tip="<b>admin_services</b> · 69 MRs · Panel de administración de servicios internos (Elm + PHP)"></div></div>
+          <span class="val">69</span>
+        </div>
+        <div class="projrow">
+          <span class="name">FREE_avaluosya</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:92.8%" data-tip="<b>FREE_avaluosya</b> · 64 MRs · Sitio público de Avaluosya, avalúos en línea"></div></div>
+          <span class="val">64</span>
+        </div>
+        <div class="projrow">
+          <span class="name">kvn-function</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:85.5%" data-tip="<b>kvn-function</b> · 59 MRs · Núcleo TS/JS del framework interno de Konrradf"></div></div>
+          <span class="val">59</span>
+        </div>
+        <div class="projrow">
+          <span class="name">admin (Avaluosya)</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:73.9%" data-tip="<b>admin</b> · 51 MRs · Administrador de Avaluosya"></div></div>
+          <span class="val">51</span>
+        </div>
+        <div class="projrow">
+          <span class="name">adminpaginas</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:66.7%" data-tip="<b>adminpaginas</b> · 46 MRs · Administrador del CMS de páginas"></div></div>
+          <span class="val">46</span>
+        </div>
+        <div class="projrow">
+          <span class="name">paginas</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:46.4%" data-tip="<b>paginas</b> · 32 MRs · CMS público de páginas"></div></div>
+          <span class="val">32</span>
+        </div>
+        <div class="projrow">
+          <span class="name">SQL_TMP</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:33.3%" data-tip="<b>SQL_TMP</b> · 23 MRs · Versionado de cambios de base de datos por mini-proyecto"></div></div>
+          <span class="val">23</span>
+        </div>
+        <div class="projrow">
+          <span class="name">sir-back</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:26.1%" data-tip="<b>sir-back</b> · 18 MRs · Backend del sistema SIR"></div></div>
+          <span class="val">18</span>
+        </div>
+        <div class="projrow other">
+          <span class="name">otros (4 repos)</span>
+          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:10.1%" data-tip="<b>Otros</b> · 7 MRs · FREE_konrradf, ProtectFiles, FREE_arriendaya y planosya"></div></div>
+          <span class="val">7</span>
+        </div>
+      </div>
+      <details class="tablewrap">
+        <summary>Ver datos en tabla</summary>
+        <table>
+          <thead><tr><th scope="col">Proyecto</th><th scope="col">Descripción</th><th scope="col" class="num-td">MRs</th></tr></thead>
+          <tbody>
+            <tr><td>admin_services</td><td>Panel de administración de servicios internos</td><td class="num-td">69</td></tr>
+            <tr><td>FREE_avaluosya</td><td>Sitio público de Avaluosya</td><td class="num-td">64</td></tr>
+            <tr><td>kvn-function</td><td>Núcleo TS/JS del framework interno</td><td class="num-td">59</td></tr>
+            <tr><td>admin</td><td>Administrador de Avaluosya</td><td class="num-td">51</td></tr>
+            <tr><td>adminpaginas</td><td>Administrador del CMS de páginas</td><td class="num-td">46</td></tr>
+            <tr><td>paginas</td><td>CMS público de páginas</td><td class="num-td">32</td></tr>
+            <tr><td>SQL_TMP</td><td>Versionado de cambios de base de datos</td><td class="num-td">23</td></tr>
+            <tr><td>sir-back</td><td>Backend del sistema SIR</td><td class="num-td">18</td></tr>
+            <tr><td>Otros (4 repos)</td><td>FREE_konrradf, ProtectFiles, FREE_arriendaya, planosya</td><td class="num-td">7</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## stack</p>
+    <h2>Stack técnico</h2>
+    <p class="sectnote">Full-stack sobre una arquitectura propia, sin frameworks pesados: control total del código en cada capa. Fuera del trabajo, construyo con el stack moderno del mercado.</p>
+    <div class="stackgrid">
+      <div class="stackcard">
+        <h3>Backend</h3>
+        <div class="chips"><span class="chip">PHP (vanilla)</span><span class="chip">APIs internas</span><span class="chip">Arquitectura propia</span></div>
+      </div>
+      <div class="stackcard">
+        <h3>Frontend</h3>
+        <div class="chips"><span class="chip">Elm</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">jQuery</span><span class="chip">SASS</span></div>
+      </div>
+      <div class="stackcard">
+        <h3>Base de datos</h3>
+        <div class="chips"><span class="chip">MySQL</span><span class="chip">Procedimientos almacenados</span><span class="chip">Triggers</span></div>
+      </div>
+      <div class="stackcard">
+        <h3>QA y automatización</h3>
+        <div class="chips"><span class="chip">Playwright</span><span class="chip">GitLab CI/CD</span><span class="chip">Git</span><span class="chip">glab</span></div>
+      </div>
+      <div class="stackcard">
+        <h3>IA aplicada al desarrollo</h3>
+        <div class="chips"><span class="chip">Claude Code</span><span class="chip">Agentes SDLC</span><span class="chip">Skills propias</span></div>
+      </div>
+      <div class="stackcard">
+        <h3>En proyectos personales</h3>
+        <div class="chips"><span class="chip">Vue 3</span><span class="chip">FastAPI</span><span class="chip">Python</span><span class="chip">Go</span><span class="chip">Next.js</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## más allá de konrradf</p>
+    <h2>Proyectos personales y open source</h2>
+    <p class="sectnote">
+      Evidencia de que rindo fuera de mi arquitectura de casa: contribuciones aceptadas
+      en proyectos open source de otros equipos, con sus convenciones y sus code reviews.
+    </p>
+    <div class="sidegrid">
+      <div class="sidecard">
+        <h3>Contribuciones open source</h3>
+        <span class="status">4 PRs mergeados · 4 en revisión</span>
+        <ul>
+          <li><a href="https://github.com/aminueza/terraform-provider-minio" rel="noopener">terraform-provider-minio</a> (Go) — 3 PRs mergeados: pruebas de aceptación y arreglos de infraestructura de test.</li>
+          <li><a href="https://github.com/authorjapps/zerocode" rel="noopener">zerocode</a> (Java) — PR mergeado: retiro completo de la integración WireMock (dependencia, código y tests).</li>
+          <li><a href="https://github.com/ianare/exif-py" rel="noopener">exif-py</a> (Python) y <a href="https://github.com/digitalfabrik/lunes-cms" rel="noopener">lunes-cms</a> (Django) — correcciones de bugs en revisión.</li>
+        </ul>
+        <p class="foot"><a href="https://github.com/devmaiter" rel="noopener">Ver todo en GitHub →</a></p>
+      </div>
+      <div class="sidecard">
+        <h3>Sistema de gestión de viáticos</h3>
+        <span class="status">En desarrollo activo</span>
+        <p>
+          Aplicación completa para solicitar, aprobar y liquidar viáticos:
+          frontend en <strong class="mono">Vue 3</strong>, backend en
+          <strong class="mono">FastAPI</strong>, con autenticación, roles y
+          flujo de aprobación en varios pasos.
+        </p>
+        <p class="foot">Demo en línea próximamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## cómo trabajo</p>
+    <h2>Prácticas de ingeniería</h2>
+    <ul class="plist" style="margin-top:24px">
+      <li>
+        <b>Entregas pequeñas y frecuentes</b>
+        <span>Cada Merge Request resuelve una sola cosa. 369 fusionados desde 2023, con meses de 11 o más.</span>
+      </li>
+      <li>
+        <b>97 % de aceptación</b>
+        <span>De 379 MRs abiertos, 369 terminaron fusionados en la rama principal.</span>
+      </li>
+      <li>
+        <b>Convenciones y trazabilidad</b>
+        <span>Ramas con prefijo (<span class="mono">MINI_</span>, <span class="mono">_FEA_</span>), changelog y versionado en cada entrega, títulos de MR estandarizados.</span>
+      </li>
+      <li>
+        <b>CI/CD como parte del flujo</b>
+        <span>Pipelines de GitLab que auto-fusionan <span class="mono">develop</span> en las ramas de feature, etiquetan versiones y publican a producción.</span>
+      </li>
+      <li>
+        <b>IA integrada al ciclo de vida</b>
+        <span>Diseño y mantengo un pipeline SDLC con agentes de IA que definen, planifican, implementan, revisan y prueban issues de GitLab.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## trabajo reciente</p>
+    <h2>Entregas destacadas de 2026</h2>
+    <ul class="hlist" style="margin-top:24px">
+      <li>
+        <span class="when">jul 2026</span>
+        <div><b>Bloques de contenido para el CMS</b><p>Slider de imágenes y nuevos bloques de contenido (ACB) para el constructor de páginas.</p></div>
+      </li>
+      <li>
+        <span class="when">2026</span>
+        <div><b>Integración de KonTextEditor</b><p>Editor de texto enriquecido cableado en los sitios host vía puertos de Elm y proxy PHP.</p></div>
+      </li>
+      <li>
+        <span class="when">feb–abr 2026</span>
+        <div><b>CRUD de OfferService en Elm</b><p>Formulario, listado, edición y borrado con modales, selección de iconos y galería de imágenes.</p></div>
+      </li>
+      <li>
+        <span class="when">feb–mar 2026</span>
+        <div><b>Gestión de categorías de fotos</b><p>Procedimientos almacenados en MySQL y su consumo desde el frontend para listar y asignar imágenes por categoría.</p></div>
+      </li>
+      <li>
+        <span class="when">abr 2026</span>
+        <div><b>Formularios para Google Ads</b><p>Ajuste de los formularios del home para campañas de Google Adwords.</p></div>
+      </li>
+      <li>
+        <span class="when">2026</span>
+        <div><b>Pipeline SDLC con agentes de IA</b><p>Repositorio central de skills, agentes y CI compartidos que automatiza el ciclo issue → plan → código → revisión → pruebas.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## contacto</p>
+    <div class="contactband">
+      <p class="cta">¿Hablamos?</p>
+      <ul>
+        <li><a href="mailto:f1000161620@gmail.com">f1000161620@gmail.com</a></li>
+        <li><a href="https://github.com/devmaiter" rel="noopener">GitHub</a></li>
+        <li><a href="https://gitlab.com/oscar.osorio.kf" rel="noopener">GitLab</a></li>
+        <!-- TODO: agregar LinkedIn cuando el perfil esté listo -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p class="meta">
+      Cifras extraídas de la API de GitLab (<span class="mono">glab</span>) el 22 de julio de 2026.
+      GitLab retiene el historial de eventos desde noviembre de 2022; la actividad real anterior
+      no está incluida. Los Merge Requests registrados inician en febrero de 2023.
+      Estados de PRs open source verificados vía la API de GitHub el 23 de julio de 2026.
+    </p>
+  </div>
+</footer>
+
+<div class="tip" id="tip" role="status" aria-hidden="true"></div>
+
+<script>
+  (function () {
+    var tip = document.getElementById('tip');
+    var pad = 12;
+
+    function place(x, y) {
+      var w = tip.offsetWidth, h = tip.offsetHeight;
+      var left = Math.min(Math.max(x + pad, 6), window.innerWidth - w - 6);
+      var top = y - h - pad;
+      if (top < 6) top = y + pad + 6;
+      tip.style.left = left + 'px';
+      tip.style.top = top + 'px';
+    }
+
+    function show(el, x, y) {
+      tip.innerHTML = el.getAttribute('data-tip');
+      tip.classList.add('show');
+      place(x, y);
+    }
+    function hide() { tip.classList.remove('show'); }
+
+    document.querySelectorAll('.bar-hit').forEach(function (el) {
+      el.addEventListener('mouseenter', function (e) { show(el, e.clientX, e.clientY); });
+      el.addEventListener('mousemove', function (e) { place(e.clientX, e.clientY); });
+      el.addEventListener('mouseleave', hide);
+      el.addEventListener('focus', function () {
+        var r = el.getBoundingClientRect();
+        show(el, r.left + r.width / 2, r.top);
+      });
+      el.addEventListener('blur', hide);
+    });
+  })();
+</script>
+
+</body>
+</html>
