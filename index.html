@@ -8,6 +8,27 @@
 <meta property="og:title" content="Oscar Osorio — Desarrollador Full-Stack">
 <meta property="og:description" content="6 354 commits · 369 MRs fusionados · 97 % de aceptación · pipeline SDLC con agentes de IA. Métricas reales de la API de GitLab, 2022–2026.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://devmaiter.github.io/">
+<meta property="og:locale" content="es_CO">
+<link rel="canonical" href="https://devmaiter.github.io/">
+<meta name="theme-color" content="#f8f7fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131018" media="(prefers-color-scheme: dark)">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Oscar Julián Osorio Romero",
+  "jobTitle": "Desarrollador Full-Stack",
+  "worksFor": { "@type": "Organization", "name": "Konrradf" },
+  "url": "https://devmaiter.github.io/",
+  "sameAs": [
+    "https://github.com/devmaiter",
+    "https://gitlab.com/oscar.osorio.kf"
+  ],
+  "knowsAbout": ["PHP", "Elm", "TypeScript", "MySQL", "Playwright", "GitLab CI/CD", "Claude Code"],
+  "nationality": { "@type": "Country", "name": "Colombia" }
+}
+</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234a3aa7'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='white' text-anchor='middle'%3EOO%3C/text%3E%3C/svg%3E">
 <style>
   :root {
@@ -65,6 +86,9 @@
     position: absolute; right: -40px; top: 12px;
     width: 420px; max-width: 60vw; height: auto;
     opacity: .5; pointer-events: none;
+  }
+  @media (max-width: 720px) {
+    .hero-graph { display: none; }
   }
   .gitline {
     font-family: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, monospace;
@@ -325,10 +349,10 @@
     <p class="role">Desarrollador Full-Stack<span class="sep">·</span>Konrradf<span class="sep">·</span>Colombia</p>
     <ul class="contactrow">
       <li><a href="mailto:f1000161620@gmail.com">f1000161620@gmail.com</a></li>
-      <li><a href="https://github.com/devmaiter" rel="noopener">github.com/devmaiter</a></li>
-      <li><a href="https://gitlab.com/oscar.osorio.kf" rel="noopener">gitlab.com/oscar.osorio.kf</a></li>
+      <li><a href="https://github.com/devmaiter" target="_blank" rel="noopener">github.com/devmaiter</a></li>
+      <li><a href="https://gitlab.com/oscar.osorio.kf" target="_blank" rel="noopener">gitlab.com/oscar.osorio.kf</a></li>
       <!-- TODO: agregar LinkedIn cuando el perfil esté listo:
-      <li><a href="https://www.linkedin.com/in/TU-PERFIL" rel="noopener">LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/in/TU-PERFIL" target="_blank" rel="noopener">LinkedIn</a></li>
       -->
     </ul>
     <p class="lead">
@@ -340,7 +364,7 @@
     <ul class="stats">
       <li class="stat"><span class="v">369</span><span class="k">MRs fusionados</span></li>
       <li class="stat"><span class="v">97 %</span><span class="k">tasa de fusión</span></li>
-      <li class="stat"><span class="v">6 354</span><span class="k">commits</span></li>
+      <li class="stat"><span class="v">6&nbsp;354</span><span class="k">commits</span></li>
       <li class="stat"><span class="v">15</span><span class="k">repositorios</span></li>
     </ul>
     <p class="substat">Además: 88 issues creados y 12 proyectos con MRs fusionados. Datos de la API de GitLab, nov 2022 – jul 2026.</p>
@@ -396,11 +420,11 @@
     </p>
     <div class="chart-card">
       <p class="chart-title">Merge Requests fusionados por año</p>
-      <div class="years" role="img" aria-label="Gráfica de barras: MRs fusionados por año. 2023: 71. 2024: 101. 2025: 135. 2026 hasta julio: 62.">
-        <div class="yearcol"><span class="num">71</span><div class="bar bar-hit" tabindex="0" style="height:52.6%" data-tip="<b>2023</b> · 71 MRs fusionados"></div></div>
-        <div class="yearcol"><span class="num">101</span><div class="bar bar-hit" tabindex="0" style="height:74.8%" data-tip="<b>2024</b> · 101 MRs fusionados"></div></div>
-        <div class="yearcol"><span class="num">135</span><div class="bar bar-hit" tabindex="0" style="height:100%" data-tip="<b>2025</b> · 135 MRs fusionados"></div></div>
-        <div class="yearcol"><span class="num">62</span><div class="bar bar-hit partial" tabindex="0" style="height:45.9%" data-tip="<b>2026</b> · 62 MRs fusionados hasta el 15 de julio"></div></div>
+      <div class="years">
+        <div class="yearcol"><span class="num">71</span><div class="bar bar-hit" tabindex="0" role="img" aria-label="2023: 71 MRs fusionados" style="height:52.6%" data-tip="<b>2023</b> · 71 MRs fusionados"></div></div>
+        <div class="yearcol"><span class="num">101</span><div class="bar bar-hit" tabindex="0" role="img" aria-label="2024: 101 MRs fusionados" style="height:74.8%" data-tip="<b>2024</b> · 101 MRs fusionados"></div></div>
+        <div class="yearcol"><span class="num">135</span><div class="bar bar-hit" tabindex="0" role="img" aria-label="2025: 135 MRs fusionados" style="height:100%" data-tip="<b>2025</b> · 135 MRs fusionados"></div></div>
+        <div class="yearcol"><span class="num">62</span><div class="bar bar-hit partial" tabindex="0" role="img" aria-label="2026: 62 MRs fusionados hasta el 15 de julio" style="height:45.9%" data-tip="<b>2026</b> · 62 MRs fusionados hasta el 15 de julio"></div></div>
       </div>
       <div class="yearlabels" aria-hidden="true"><span>2023</span><span>2024</span><span>2025</span><span>2026*</span></div>
       <p class="chart-foot">* Año en curso: corte al 15 de julio de 2026.</p>
@@ -433,47 +457,47 @@
       <div class="projrows">
         <div class="projrow">
           <span class="name">admin_services</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:100%" data-tip="<b>admin_services</b> · 69 MRs · Panel de administración de servicios internos (Elm + PHP)"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="admin_services: 69 MRs. Panel de administración de servicios internos (Elm + PHP)" style="width:100%" data-tip="<b>admin_services</b> · 69 MRs · Panel de administración de servicios internos (Elm + PHP)"></div></div>
           <span class="val">69</span>
         </div>
         <div class="projrow">
           <span class="name">FREE_avaluosya</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:92.8%" data-tip="<b>FREE_avaluosya</b> · 64 MRs · Sitio público de Avaluosya, avalúos en línea"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="FREE_avaluosya: 64 MRs. Sitio público de Avaluosya, avalúos en línea" style="width:92.8%" data-tip="<b>FREE_avaluosya</b> · 64 MRs · Sitio público de Avaluosya, avalúos en línea"></div></div>
           <span class="val">64</span>
         </div>
         <div class="projrow">
           <span class="name">kvn-function</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:85.5%" data-tip="<b>kvn-function</b> · 59 MRs · Núcleo TS/JS del framework interno de Konrradf"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="kvn-function: 59 MRs. Núcleo TS/JS del framework interno de Konrradf" style="width:85.5%" data-tip="<b>kvn-function</b> · 59 MRs · Núcleo TS/JS del framework interno de Konrradf"></div></div>
           <span class="val">59</span>
         </div>
         <div class="projrow">
           <span class="name">admin (Avaluosya)</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:73.9%" data-tip="<b>admin</b> · 51 MRs · Administrador de Avaluosya"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="admin: 51 MRs. Administrador de Avaluosya" style="width:73.9%" data-tip="<b>admin</b> · 51 MRs · Administrador de Avaluosya"></div></div>
           <span class="val">51</span>
         </div>
         <div class="projrow">
           <span class="name">adminpaginas</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:66.7%" data-tip="<b>adminpaginas</b> · 46 MRs · Administrador del CMS de páginas"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="adminpaginas: 46 MRs. Administrador del CMS de páginas" style="width:66.7%" data-tip="<b>adminpaginas</b> · 46 MRs · Administrador del CMS de páginas"></div></div>
           <span class="val">46</span>
         </div>
         <div class="projrow">
           <span class="name">paginas</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:46.4%" data-tip="<b>paginas</b> · 32 MRs · CMS público de páginas"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="paginas: 32 MRs. CMS público de páginas" style="width:46.4%" data-tip="<b>paginas</b> · 32 MRs · CMS público de páginas"></div></div>
           <span class="val">32</span>
         </div>
         <div class="projrow">
           <span class="name">SQL_TMP</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:33.3%" data-tip="<b>SQL_TMP</b> · 23 MRs · Versionado de cambios de base de datos por mini-proyecto"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="SQL_TMP: 23 MRs. Versionado de cambios de base de datos por mini-proyecto" style="width:33.3%" data-tip="<b>SQL_TMP</b> · 23 MRs · Versionado de cambios de base de datos por mini-proyecto"></div></div>
           <span class="val">23</span>
         </div>
         <div class="projrow">
           <span class="name">sir-back</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:26.1%" data-tip="<b>sir-back</b> · 18 MRs · Backend del sistema SIR"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="sir-back: 18 MRs. Backend del sistema SIR" style="width:26.1%" data-tip="<b>sir-back</b> · 18 MRs · Backend del sistema SIR"></div></div>
           <span class="val">18</span>
         </div>
         <div class="projrow other">
           <span class="name">otros (4 repos)</span>
-          <div class="track"><div class="fill bar-hit" tabindex="0" style="width:10.1%" data-tip="<b>Otros</b> · 7 MRs · FREE_konrradf, ProtectFiles, FREE_arriendaya y planosya"></div></div>
+          <div class="track"><div class="fill bar-hit" tabindex="0" role="img" aria-label="Otros 4 repos: 7 MRs. FREE_konrradf, ProtectFiles, FREE_arriendaya y planosya" style="width:10.1%" data-tip="<b>Otros</b> · 7 MRs · FREE_konrradf, ProtectFiles, FREE_arriendaya y planosya"></div></div>
           <span class="val">7</span>
         </div>
       </div>
@@ -545,11 +569,11 @@
         <h3>Contribuciones open source</h3>
         <span class="status">4 PRs mergeados · 4 en revisión</span>
         <ul>
-          <li><a href="https://github.com/aminueza/terraform-provider-minio" rel="noopener">terraform-provider-minio</a> (Go) — 3 PRs mergeados: pruebas de aceptación y arreglos de infraestructura de test.</li>
-          <li><a href="https://github.com/authorjapps/zerocode" rel="noopener">zerocode</a> (Java) — PR mergeado: retiro completo de la integración WireMock (dependencia, código y tests).</li>
-          <li><a href="https://github.com/ianare/exif-py" rel="noopener">exif-py</a> (Python) y <a href="https://github.com/digitalfabrik/lunes-cms" rel="noopener">lunes-cms</a> (Django) — correcciones de bugs en revisión.</li>
+          <li><a href="https://github.com/aminueza/terraform-provider-minio" target="_blank" rel="noopener">terraform-provider-minio</a> (Go) — 3 PRs mergeados: pruebas de aceptación y arreglos de infraestructura de test.</li>
+          <li><a href="https://github.com/authorjapps/zerocode" target="_blank" rel="noopener">zerocode</a> (Java) — PR mergeado: retiro completo de la integración WireMock (dependencia, código y tests).</li>
+          <li><a href="https://github.com/ianare/exif-py" target="_blank" rel="noopener">exif-py</a> (Python) y <a href="https://github.com/digitalfabrik/lunes-cms" target="_blank" rel="noopener">lunes-cms</a> (Django) — correcciones de bugs en revisión.</li>
         </ul>
-        <p class="foot"><a href="https://github.com/devmaiter" rel="noopener">Ver todo en GitHub →</a></p>
+        <p class="foot"><a href="https://github.com/devmaiter" target="_blank" rel="noopener">Ver todo en GitHub →</a></p>
       </div>
       <div class="sidecard">
         <h3>Sistema de gestión de viáticos</h3>
@@ -635,8 +659,8 @@
       <p class="cta">¿Hablamos?</p>
       <ul>
         <li><a href="mailto:f1000161620@gmail.com">f1000161620@gmail.com</a></li>
-        <li><a href="https://github.com/devmaiter" rel="noopener">GitHub</a></li>
-        <li><a href="https://gitlab.com/oscar.osorio.kf" rel="noopener">GitLab</a></li>
+        <li><a href="https://github.com/devmaiter" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://gitlab.com/oscar.osorio.kf" target="_blank" rel="noopener">GitLab</a></li>
         <!-- TODO: agregar LinkedIn cuando el perfil esté listo -->
       </ul>
     </div>
@@ -654,7 +678,7 @@
   </div>
 </footer>
 
-<div class="tip" id="tip" role="status" aria-hidden="true"></div>
+<div class="tip" id="tip" aria-hidden="true"></div>
 
 <script>
   (function () {
