@@ -26,10 +26,3 @@ Abrir `index.html` en el navegador. Nada más.
 
 Con dominio propio después: **Settings → Pages → Custom domain** y un registro
 CNAME en el DNS del dominio.
-
-## Pendientes
-
-- [ ] Agregar enlace de LinkedIn (hay `TODO` marcados en `index.html`).
-- [ ] Enlazar la demo del sistema de viáticos cuando esté desplegada.
-- [ ] Evaluar un correo de contacto más presentable (p. ej. `oscar.osorio.dev@gmail.com`).
-- [ ] Dominio propio (opcional).
