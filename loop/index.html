@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop — Integración AV para un club · Oscar Osorio</title>
+<meta name="description" content="Caso de estudio: Loop une video (Resolume), luces (Onyx) y audio (Reaper) en un panel de tablet. Se usó en un bar con música en vivo y hoy lo usa Multiaudio en sus eventos.">
+<meta property="og:title" content="Loop — Integración AV para un club">
+<meta property="og:description" content="Video, luces y audio de un club en una sola tablet. En uso real: un bar con música en vivo y Multiaudio.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://devmaiter.github.io/loop/">
+<meta property="og:locale" content="es_CO">
+<link rel="canonical" href="https://devmaiter.github.io/loop/">
+<meta name="theme-color" content="#f8f7fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131018" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234a3aa7'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='16' font-weight='bold' fill='white' text-anchor='middle'%3EOO%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    color-scheme: light;
+    --ground:      #f8f7fa;
+    --card:        #ffffff;
+    --ink:         #191624;
+    --ink-2:       #5b5566;
+    --muted:       #8b8699;
+    --hairline:    #e7e4ef;
+    --accent:      #4a3aa7;
+    --accent-ink:  #3d2f92;
+    --accent-soft: #edeaf8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --ground:      #131018;
+      --card:        #1a1722;
+      --ink:         #f1eff8;
+      --ink-2:       #aba5bc;
+      --muted:       #7c7690;
+      --hairline:    #2b2637;
+      --accent:      #9085e9;
+      --accent-ink:  #a89ef0;
+      --accent-soft: #262040;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono, .eyebrow, .chip, .back, figcaption, .diagram text {
+    font-family: ui-monospace, "Cascadia Code", "SF Mono", "JetBrains Mono", Consolas, monospace;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  header { padding: 36px 0 44px; }
+  .back { font-size: .82rem; display: inline-block; margin-bottom: 36px; }
+  .eyebrow { font-size: .8rem; color: var(--accent-ink); letter-spacing: .04em; margin: 0 0 6px; }
+  h1 {
+    font-size: clamp(2rem, 6vw, 3rem); font-weight: 800; letter-spacing: -.02em;
+    line-height: 1.08; margin: 0 0 14px; text-wrap: balance;
+  }
+  .lead { max-width: 60ch; font-size: 1.05rem; color: var(--ink-2); margin: 0 0 22px; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 0; padding: 0; list-style: none; }
+  .chip { font-size: .78rem; color: var(--accent-ink); background: var(--accent-soft); border-radius: 6px; padding: 3px 9px; }
+  .chip.live { background: var(--accent); color: #fff; }
+
+  section { padding: 40px 0; border-top: 1px solid var(--hairline); }
+  h2 { font-size: 1.45rem; font-weight: 700; letter-spacing: -.01em; margin: 0 0 8px; text-wrap: balance; }
+  .sectnote { color: var(--ink-2); font-size: .95rem; max-width: 62ch; margin: 0 0 24px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 12px; }
+  .card { background: var(--card); border: 1px solid var(--hairline); border-radius: 10px; padding: 18px 20px; }
+  .card h3 {
+    margin: 0 0 8px; font-size: .78rem; color: var(--accent-ink);
+    text-transform: uppercase; letter-spacing: .07em; font-weight: 700;
+  }
+  .card p { margin: 0; color: var(--ink-2); font-size: .93rem; }
+  .card p strong { color: var(--ink); font-weight: 600; }
+
+  .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+  figure { margin: 0; }
+  figure img, .photo-slot {
+    display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    border-radius: 10px; border: 1px solid var(--hairline); background: var(--card);
+  }
+  .photo-slot {
+    display: grid; place-items: center; padding: 16px; text-align: center;
+    border-style: dashed; color: var(--muted); font-size: .85rem;
+  }
+  figcaption { font-size: .78rem; color: var(--muted); margin-top: 8px; }
+
+  .diagram-card { background: var(--card); border: 1px solid var(--hairline); border-radius: 12px; padding: 20px; overflow-x: auto; }
+  .diagram { display: block; width: 100%; min-width: 560px; height: auto; }
+  .diagram .box { fill: var(--ground); stroke: var(--hairline); stroke-width: 1.5; }
+  .diagram .core { fill: var(--accent); stroke: none; }
+  .diagram .label { fill: var(--ink); font-size: 14px; font-weight: 700; }
+  .diagram .sub { fill: var(--muted); font-size: 11px; }
+  .diagram .core-label { fill: #fff; font-size: 16px; font-weight: 700; }
+  .diagram .core-sub { fill: #fff; opacity: .8; font-size: 11px; }
+  .diagram .wire { stroke: var(--accent); stroke-width: 1.5; fill: none; }
+  .diagram .proto { fill: var(--accent-ink); font-size: 11px; }
+  .diagram-note { font-size: .82rem; color: var(--muted); margin: 12px 0 0; }
+
+  .plist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+  .plist li { max-width: 68ch; padding-left: 18px; border-left: 2px solid var(--accent); }
+  .plist b { display: block; font-weight: 650; margin-bottom: 2px; }
+  .plist span { color: var(--ink-2); font-size: .95rem; }
+
+  .compare { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+  .compare ul { margin: 0; padding-left: 18px; color: var(--ink-2); font-size: .92rem; }
+  .compare li { margin: 4px 0; }
+
+  footer { padding: 32px 0 56px; border-top: 1px solid var(--hairline); }
+  footer p { margin: 0; color: var(--ink-2); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="back" href="../">← Oscar Osorio · portafolio</a>
+    <p class="eyebrow">## caso de estudio</p>
+    <h1>Loop: video, luces y audio de un club en una sola tablet</h1>
+    <p class="lead">
+      Integré <strong>Resolume</strong> (video), <strong>Onyx</strong> (luces) y
+      <strong>Reaper</strong> (audio) en un panel web que se maneja desde una tablet.
+      Se usó en un bar con música en vivo, y hoy lo usa <strong>Multiaudio</strong>,
+      una empresa de producción, en sus eventos.
+    </p>
+    <ul class="chips" aria-label="Estado y tecnologías">
+      <li class="chip live">En uso en eventos</li>
+      <li class="chip">v3.0.0</li>
+      <li class="chip">TypeScript</li>
+      <li class="chip">Node.js</li>
+      <li class="chip">Socket.IO</li>
+      <li class="chip">OSC</li>
+      <li class="chip">Art-Net</li>
+      <li class="chip">UDP</li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## el encargo</p>
+    <h2>Tres programas, tres consolas, un solo show</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Problema</h3>
+        <p>En el bar, el video, las luces y el audio estaban en programas y equipos
+        distintos. Cada cambio de ambiente necesitaba a alguien en cada consola, y las
+        luces no seguían lo que pasaba en la pantalla.</p>
+      </div>
+      <div class="card">
+        <h3>Solución</h3>
+        <p>Un programa que escucha a Resolume y manda órdenes a Onyx y Reaper, con un
+        <strong>panel en la tablet</strong>: escenas, flashes, estrobos que siguen al
+        video y control de pistas.</p>
+      </div>
+      <div class="card">
+        <h3>Resultado</h3>
+        <p>El dueño del bar quedó satisfecho y <strong>Multiaudio</strong> lo adoptó
+        para sus eventos. Lo instala un técnico copiando una carpeta: no hay que
+        instalar nada más.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## en uso</p>
+    <h2>En el sitio</h2>
+    <div class="gallery">
+      <figure>
+        <div class="photo-slot">Foto: el panel en la tablet durante un show</div>
+        <figcaption>El panel en la tablet</figcaption>
+      </figure>
+      <figure>
+        <div class="photo-slot">Foto: el montaje en el bar</div>
+        <figcaption>Montaje en el bar</figcaption>
+      </figure>
+      <figure>
+        <div class="photo-slot">Foto: un evento de Multiaudio</div>
+        <figcaption>En un evento de Multiaudio</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## cómo funciona</p>
+    <h2>Un programa en el medio que habla el idioma de cada equipo</h2>
+    <p class="sectnote">
+      Cada programa usa su propio protocolo. Loop los traduce y mantiene un solo estado del
+      show, que ven todas las tablets a la vez.
+    </p>
+    <div class="diagram-card">
+      <svg class="diagram" viewBox="0 0 720 300" role="img"
+           aria-labelledby="dg-title dg-desc">
+        <title id="dg-title">Arquitectura de Loop</title>
+        <desc id="dg-desc">Resolume envía opacidad por OSC y color por Art-Net a Loop. Loop envía
+          comandos UDP a Onyx, OSC a Reaper y UDP al PC de audio, y se comunica con las tablets
+          por Socket.IO.</desc>
+
+        <rect class="box" x="10" y="40" width="170" height="70" rx="10"/>
+        <text class="label" x="95" y="70" text-anchor="middle">Resolume</text>
+        <text class="sub" x="95" y="90" text-anchor="middle">video</text>
+
+        <rect class="box" x="10" y="190" width="170" height="70" rx="10"/>
+        <text class="label" x="95" y="220" text-anchor="middle">Tablets</text>
+        <text class="sub" x="95" y="240" text-anchor="middle">panel web, con PIN</text>
+
+        <rect class="core" x="280" y="100" width="160" height="100" rx="12"/>
+        <text class="core-label" x="360" y="145" text-anchor="middle">Loop</text>
+        <text class="core-sub" x="360" y="166" text-anchor="middle">loop.exe + config</text>
+
+        <rect class="box" x="540" y="20" width="170" height="62" rx="10"/>
+        <text class="label" x="625" y="47" text-anchor="middle">Onyx</text>
+        <text class="sub" x="625" y="66" text-anchor="middle">luces</text>
+
+        <rect class="box" x="540" y="119" width="170" height="62" rx="10"/>
+        <text class="label" x="625" y="146" text-anchor="middle">Reaper</text>
+        <text class="sub" x="625" y="165" text-anchor="middle">audio</text>
+
+        <rect class="box" x="540" y="218" width="170" height="62" rx="10"/>
+        <text class="label" x="625" y="245" text-anchor="middle">PC de audio</text>
+        <text class="sub" x="625" y="264" text-anchor="middle">presets</text>
+
+        <path class="wire" d="M180 75 C 230 75, 230 125, 280 125"/>
+        <text class="proto" x="190" y="58">OSC + Art-Net</text>
+        <path class="wire" d="M180 225 C 230 225, 230 175, 280 175"/>
+        <text class="proto" x="196" y="270">Socket.IO</text>
+
+        <path class="wire" d="M440 125 C 490 125, 490 51, 540 51"/>
+        <text class="proto" x="470" y="84">UDP</text>
+        <path class="wire" d="M440 150 L 540 150"/>
+        <text class="proto" x="474" y="143">OSC</text>
+        <path class="wire" d="M440 175 C 490 175, 490 249, 540 249"/>
+        <text class="proto" x="470" y="222">UDP</text>
+      </svg>
+      <p class="diagram-note">La opacidad de una capa de video mueve los estrobos en tiempo real;
+      el color del video aparece en el panel.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## decisiones</p>
+    <h2>Pensado para un show en vivo, no para una demo</h2>
+    <ul class="plist">
+      <li><b>El panel no manda comandos, manda botones.</b>
+        <span>La tablet dice "escena 3" y el servidor decide qué comando sale según la
+        configuración. Alguien en el wifi del club no puede mandarle cualquier cosa a las
+        luces, y agregar un botón es editar un archivo, no el código.</span></li>
+      <li><b>Nada destructivo al arrancar.</b>
+        <span>Si el PC se reinicia en pleno show, Loop vuelve sin tocar lo que está en escena.
+        Limpiar las luces es un botón que pide un segundo toque.</span></li>
+      <li><b>Funciona sin internet.</b>
+        <span>El panel no descarga nada de afuera: en un club la red suele ser solo local.</span></li>
+      <li><b>Se instala copiando una carpeta.</b>
+        <span>Un <span class="mono">loop.exe</span> con la configuración al lado. Cada evento
+        cambia IPs y botones en un JSON; si algo está mal escrito, Loop dice qué revisar.</span></li>
+      <li><b>La lógica del show no depende de los equipos.</b>
+        <span>Las reglas hablan con "luces" y "mezcla", no con Onyx o Reaper directamente.
+        Así se prueban sin equipos y se puede cambiar de consola sin reescribir el show.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">## de prototipo a producto</p>
+    <h2>La versión 3: lo que hizo falta para entregarlo</h2>
+    <p class="sectnote">
+      La primera versión funcionaba en el bar. Para que otra empresa la usara en sus eventos
+      hubo que llevarla de prototipo a producto.
+    </p>
+    <div class="compare">
+      <div class="card">
+        <h3>Antes</h3>
+        <ul>
+          <li>IPs escritas en el código: cada evento era editarlo</li>
+          <li>El panel dependía de internet para cargar</li>
+          <li>Al arrancar limpiaba las luces</li>
+          <li>Cualquiera en la red podía mandar comandos</li>
+          <li>Cada tablet mostraba su propio estado</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Ahora</h3>
+        <ul>
+          <li>Configuración en un archivo, validada al arrancar</li>
+          <li>Panel local, sin dependencias externas</li>
+          <li>Arranque seguro; limpiar pide confirmación</li>
+          <li>PIN opcional y solo botones definidos</li>
+          <li>Un estado compartido por todas las tablets</li>
+          <li>Pruebas automáticas y un <span class="mono">.exe</span> listo para copiar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>¿Necesitas integrar equipos o automatizar algo de tu evento o negocio?
+      <a href="mailto:f1000161620@gmail.com">f1000161620@gmail.com</a> ·
+      <a href="../">Ver el portafolio</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
