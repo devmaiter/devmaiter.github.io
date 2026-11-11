@@ -12,150 +12,136 @@
 <meta property="og:image" content="https://devmaiter.github.io/loop/img/bar-montaje.jpg">
 <meta property="og:locale" content="es_CO">
 <link rel="canonical" href="https://devmaiter.github.io/loop/">
-<meta name="theme-color" content="#0c0c0d">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230c0c0d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ffb020'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230b0b0c'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23ffb020'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@700;900&family=Permanent+Marker&family=Libre+Franklin:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     color-scheme: dark;
-    --bg:     #0c0c0d;
-    --panel:  #151517;
-    --line:   #2a2a2e;
-    --ink:    #ecebe6;
-    --ink-2:  #a3a29b;
-    --dim:    #6c6b66;
-    --amber:  #ffb020;
-    --red:    #ff3b30;
-    --green:  #3ddc84;
-    --cond: "Barlow Condensed", "Arial Narrow", sans-serif;
-    --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
-    --sans: "IBM Plex Sans", system-ui, "Segoe UI", sans-serif;
+    --bg:    #0b0b0c;
+    --ink:   #efede6;
+    --ink-2: #a9a69c;
+    --dim:   #6f6c64;
+    --amber: #ffb020;
+    --tape:  #e9e4d2;
+    --red:   #ff3b30;
+    --stencil: "Big Shoulders Stencil Display", Impact, sans-serif;
+    --marker:  "Permanent Marker", "Comic Sans MS", cursive;
+    --body:    "Libre Franklin", system-ui, sans-serif;
+    --mono:    ui-monospace, Consolas, monospace;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; }
-  body { background: var(--bg); color: var(--ink); font: 16px/1.6 var(--sans); -webkit-font-smoothing: antialiased; }
-  a { color: var(--amber); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  body { background: var(--bg); color: var(--ink); font: 17px/1.65 var(--body); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  a { color: var(--amber); text-underline-offset: 4px; }
   a:focus-visible, video:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
-  .wrap { max-width: 980px; margin: 0 auto; padding: 0 20px; }
-  .mono { font-family: var(--mono); }
+  .wrap { max-width: 940px; margin: 0 auto; padding: 0 20px; }
+  strong { color: var(--ink); font-weight: 600; }
 
-  /* ── Portada: la foto del bar ocupa todo ── */
-  .hero { position: relative; min-height: min(88vh, 760px); display: flex; align-items: flex-end; overflow: hidden; }
+  /* ── Portada ── */
+  .hero { position: relative; min-height: min(90vh, 780px); display: flex; align-items: flex-end; overflow: hidden; }
   .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; opacity: .55; }
-  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,12,13,.2) 0%, rgba(12,12,13,.35) 45%, var(--bg) 100%); }
-  .hero .wrap { position: relative; z-index: 1; padding-bottom: 48px; width: 100%; }
-  .back { font: 600 .8rem var(--mono); color: var(--ink-2); text-decoration: none; position: absolute; top: 20px; left: 20px; z-index: 2; }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,11,12,.15), rgba(11,11,12,.4) 50%, var(--bg)); }
+  .hero .wrap { position: relative; z-index: 1; padding-bottom: 40px; width: 100%; }
+  .back { position: absolute; top: 18px; left: 20px; z-index: 2; font: .85rem var(--body); color: var(--ink-2); text-decoration: none; }
   .back:hover { color: var(--amber); }
-  .tag { display: inline-flex; align-items: center; gap: 8px; font: 600 .75rem var(--mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--line); background: rgba(12,12,13,.6); padding: 5px 10px; border-radius: 3px; }
-  .tag i { width: 8px; height: 8px; border-radius: 50%; background: var(--red); box-shadow: 0 0 10px var(--red); }
-  h1 { font: 800 clamp(3rem, 11vw, 7rem)/.9 var(--cond); text-transform: uppercase; letter-spacing: -.01em; margin: 18px 0 14px; }
-  h1 span { color: var(--amber); }
-  .hero p { max-width: 54ch; font-size: 1.1rem; color: var(--ink); margin: 0; }
+  .live { font: .85rem var(--body); color: var(--ink); display: inline-flex; align-items: center; gap: 8px; }
+  .live i { width: 9px; height: 9px; border-radius: 50%; background: var(--red); box-shadow: 0 0 12px var(--red); animation: rec 2s infinite; }
+  @keyframes rec { 50% { opacity: .35; } }
+  @media (prefers-reduced-motion: reduce) { .live i { animation: none; } }
+  h1 { font: 900 clamp(3.2rem, 13vw, 8rem)/.95 var(--stencil); text-transform: uppercase; margin: 14px 0 18px; }
+  h1 em { font-style: normal; color: var(--amber); }
+  .hero p { max-width: 50ch; font-size: 1.15rem; margin: 0; }
 
-  /* ── Cifras ── */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 4px; margin: 0 0 8px; }
-  .stats div { padding: 16px 18px; border-left: 1px solid var(--line); }
-  .stats div:first-child { border-left: 0; }
-  .stats b { display: block; font: 800 2.2rem/1 var(--cond); color: var(--amber); }
-  .stats span { font: .78rem var(--mono); color: var(--ink-2); }
-  @media (max-width: 640px) {
-    .stats { grid-template-columns: 1fr 1fr; }
-    .stats div:nth-child(3) { border-left: 0; }
-    .stats div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  /* ── Cinta gaffer como etiqueta de sección ── */
+  .tape {
+    display: inline-block; font: 1.05rem var(--marker); color: #1a1a1a; background: var(--tape);
+    padding: 4px 18px 3px; transform: rotate(-2deg); margin: 0 0 18px;
+    clip-path: polygon(0 8%, 3% 0, 97% 4%, 100% 0, 99% 92%, 96% 100%, 4% 96%, 1% 100%);
   }
+  section:nth-of-type(even) .tape { transform: rotate(1.5deg); }
+  section { padding: 84px 0 0; }
+  h2 { font: 900 clamp(2.2rem, 6vw, 3.6rem)/.95 var(--stencil); text-transform: uppercase; margin: 0 0 20px; }
+  section p { color: var(--ink-2); max-width: 62ch; }
 
-  /* ── Secciones como cues de una consola ── */
-  section { padding: 64px 0 8px; }
-  .cue { display: grid; grid-template-columns: 92px 1fr; gap: 24px; }
-  .cue > div { min-width: 0; }
-  .rider { table-layout: fixed; }
-  .rider td, .cuelist td { overflow-wrap: anywhere; }
-  .cue-n { font: 600 .78rem var(--mono); color: var(--dim); padding-top: 10px; border-top: 2px solid var(--amber); align-self: start; }
-  .cue-n b { display: block; font: 800 2rem/1.1 var(--cond); color: var(--ink); }
-  h2 { font: 800 clamp(1.8rem, 4.5vw, 2.6rem)/1 var(--cond); text-transform: uppercase; margin: 6px 0 16px; }
-  .cue p { color: var(--ink-2); max-width: 64ch; margin: 0 0 14px; }
-  .cue p strong { color: var(--ink); font-weight: 600; }
-  @media (max-width: 640px) { h1 { font-size: clamp(2.4rem, 12vw, 3.4rem); } .rider th { width: 38%; } .cue { grid-template-columns: 1fr; gap: 8px; } .cue-n { display: flex; gap: 10px; align-items: baseline; } .cue-n b { font-size: 1.4rem; } }
+  /* ── Cifras sueltas ── */
+  .stats { display: flex; flex-wrap: wrap; gap: 28px 56px; margin: 56px 0 0; padding: 0; list-style: none; }
+  .stats li { max-width: 12ch; color: var(--ink-2); font-size: .95rem; line-height: 1.35; }
+  .stats b { display: block; font: 900 clamp(3rem, 8vw, 4.6rem)/1 var(--stencil); color: var(--amber); }
 
-  /* encargo: pedido vs entregado */
-  .brief { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--line); border-radius: 4px; margin-top: 8px; }
-  .brief > div { padding: 18px 20px; }
-  .brief > div + div { border-left: 1px solid var(--line); }
-  .brief h3 { font: 600 .75rem var(--mono); letter-spacing: .12em; text-transform: uppercase; margin: 0 0 10px; color: var(--dim); }
-  .brief .ok h3 { color: var(--green); }
-  .brief ul { margin: 0; padding: 0; list-style: none; }
-  .brief li { padding: 6px 0; border-top: 1px dashed var(--line); color: var(--ink-2); font-size: .95rem; }
-  .brief li:first-child { border-top: 0; }
-  @media (max-width: 640px) { .brief { grid-template-columns: 1fr; } .brief > div + div { border-left: 0; border-top: 1px solid var(--line); } }
+  /* ── Pedido → entregado ── */
+  .ask { margin: 30px 0 0; padding: 0; list-style: none; }
+  .ask li { display: grid; grid-template-columns: 1fr auto 1fr; gap: 18px; align-items: baseline; padding: 14px 0; }
+  .ask li + li { background: linear-gradient(90deg, transparent, rgba(255,176,32,.25), transparent) top / 100% 1px no-repeat; }
+  .ask .q { font: italic 1.05rem var(--body); color: var(--ink-2); }
+  .ask .arrow { font: 900 1.6rem var(--stencil); color: var(--amber); }
+  .ask .a { color: var(--ink); }
+  @media (max-width: 640px) { .ask li { grid-template-columns: 1fr; gap: 2px; } .ask .arrow { display: none; } .ask .a::before { content: "→ "; color: var(--amber); } }
 
-  /* rol */
-  .role { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0; border-top: 1px solid var(--line); margin-top: 8px; }
-  .role div { padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); }
-  .role b { font: 600 .95rem var(--sans); color: var(--ink); display: block; }
-  .role span { font-size: .88rem; color: var(--ink-2); }
+  /* ── Rol como checklist de montaje a mano ── */
+  .checks { columns: 2 260px; column-gap: 48px; margin: 26px 0 0; padding: 0; list-style: none; }
+  .checks li { break-inside: avoid; padding: 0 0 18px 38px; position: relative; color: var(--ink-2); }
+  .checks li::before { content: "✓"; position: absolute; left: 0; top: -6px; font: 1.6rem var(--marker); color: var(--amber); transform: rotate(-8deg); }
+  .checks b { display: block; color: var(--ink); font-weight: 600; }
 
-  /* evidencia */
-  .media { display: grid; grid-template-columns: 1.6fr 1fr; gap: 10px; margin-top: 8px; }
-  .media video, .media img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); background: #000; }
-  .media video { aspect-ratio: 848 / 480; height: auto; }
-  .media .tall { aspect-ratio: 3 / 4; }
-  figure { margin: 0; }
-  figcaption { font: .76rem/1.5 var(--mono); color: var(--dim); margin-top: 8px; }
-  figcaption b { color: var(--amber); font-weight: 600; }
-  @media (max-width: 720px) { .media { grid-template-columns: 1fr; } }
+  /* ── Evidencia ── */
+  .film { margin: 30px 0 0; }
+  .film video { display: block; width: 100%; height: auto; aspect-ratio: 848 / 480; background: #000; border-radius: 2px; }
+  .note { font: 1rem var(--marker); color: var(--amber); margin: 10px 0 0; transform: rotate(-1deg); }
+  .pinned { display: grid; grid-template-columns: 1fr 1.2fr; gap: 36px; align-items: center; margin-top: 46px; }
+  .pinned img { width: 100%; height: auto; display: block; transform: rotate(-2.5deg); box-shadow: 0 18px 40px rgba(0,0,0,.6); border: 8px solid #f1eee4; border-bottom-width: 34px; }
+  @media (max-width: 680px) { .pinned { grid-template-columns: 1fr; } .pinned img { max-width: 300px; margin: 0 auto; } }
 
-  /* línea de tiempo tipo cue list */
-  .cuelist { width: 100%; border-collapse: collapse; font: .88rem var(--mono); margin-top: 8px; }
-  .cuelist th { text-align: left; font-weight: 600; color: var(--dim); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; padding: 8px 10px; border-bottom: 1px solid var(--line); }
-  .cuelist td { padding: 12px 10px; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--ink-2); }
-  .cuelist td:first-child { color: var(--amber); width: 3.5em; }
-  .cuelist td:nth-child(2) { color: var(--ink); white-space: nowrap; width: 7.5em; }
-  .cuelist tr.go td { background: rgba(255,176,32,.07); }
-  .cuelist tr.go td:first-child { box-shadow: inset 3px 0 0 var(--amber); }
-  @media (max-width: 560px) { .cuelist td:nth-child(2) { white-space: normal; } }
+  /* ── Cronología ── */
+  .timeline { margin: 30px 0 0 8px; padding: 0; list-style: none; border-left: 3px solid var(--amber); }
+  .timeline li { position: relative; padding: 0 0 30px 28px; }
+  .timeline li::before { content: ""; position: absolute; left: -9px; top: 10px; width: 15px; height: 15px; border-radius: 50%; background: var(--bg); border: 3px solid var(--amber); }
+  .timeline li.now::before { background: var(--amber); box-shadow: 0 0 14px var(--amber); }
+  .timeline .when { font: 900 1.7rem/1.1 var(--stencil); text-transform: uppercase; color: var(--ink); display: block; }
+  .timeline p { margin: 2px 0 0; }
 
-  /* diagrama */
-  .diagram-box { border: 1px solid var(--line); border-radius: 4px; padding: 16px; overflow-x: auto; background: var(--panel); margin-top: 8px; }
-  .diagram { display: block; width: 100%; min-width: 600px; height: auto; font-family: var(--mono); }
-  .diagram .box { fill: var(--bg); stroke: var(--line); stroke-width: 1.5; }
+  /* ── Diagrama ── */
+  .diagram { display: block; width: 100%; height: auto; margin-top: 26px; }
+  .diagram text { font-family: var(--body); }
+  .diagram .box { fill: none; stroke: var(--ink-2); stroke-width: 1.5; }
   .diagram .core { fill: var(--amber); }
-  .diagram .label { fill: var(--ink); font-size: 14px; font-weight: 600; }
-  .diagram .sub { fill: var(--dim); font-size: 11px; }
-  .diagram .core-label { fill: #111; font-size: 17px; font-weight: 600; }
-  .diagram .core-sub { fill: #111; opacity: .75; font-size: 11px; }
-  .diagram .wire { stroke: var(--amber); stroke-width: 1.5; fill: none; stroke-dasharray: 4 4; }
-  .diagram .proto { fill: var(--amber); font-size: 11px; }
+  .diagram .label { fill: var(--ink); font-size: 15px; font-weight: 600; }
+  .diagram .sub { fill: var(--dim); font-size: 12px; }
+  .diagram .core-label { fill: #111; font: 900 26px var(--stencil); }
+  .diagram .core-sub { fill: #111; font-size: 11px; }
+  .diagram .wire { stroke: var(--amber); stroke-width: 2; fill: none; }
+  .diagram .proto { fill: var(--amber); font: 13px var(--marker); }
+  .scroll-x { overflow-x: auto; }
+  .scroll-x .diagram { min-width: 620px; }
 
-  /* código y terminal */
-  pre { margin: 8px 0 0; padding: 18px 20px; background: var(--panel); border: 1px solid var(--line); border-radius: 4px; overflow-x: auto; font: .84rem/1.65 var(--mono); color: var(--ink); }
-  pre .c { color: var(--dim); }
-  pre .k { color: var(--amber); }
-  pre .ok { color: var(--green); }
-  .file { font: .74rem var(--mono); color: var(--dim); margin: 18px 0 0; }
+  /* ── Código ── */
+  .code-h { font: 1rem var(--marker); color: var(--ink-2); margin: 46px 0 8px; }
+  pre { margin: 0; padding: 20px 22px; background: #141416; border-radius: 2px; overflow-x: auto; font: .86rem/1.7 var(--mono); color: var(--ink); }
+  pre .c { color: var(--dim); } pre .k { color: var(--amber); } pre .ok { color: #3ddc84; }
 
-  /* decisiones */
-  .decisions { margin: 8px 0 0; padding: 0; list-style: none; counter-reset: d; }
-  .decisions li { counter-increment: d; display: grid; grid-template-columns: 2.4em 1fr; padding: 14px 0; border-top: 1px solid var(--line); }
-  .decisions li::before { content: counter(d, decimal-leading-zero); font: 600 .85rem var(--mono); color: var(--amber); padding-top: 2px; }
-  .decisions b { display: block; color: var(--ink); font-weight: 600; }
-  .decisions span { color: var(--ink-2); font-size: .94rem; }
+  /* ── Decisiones ── */
+  .decisions { margin: 30px 0 0; padding: 0; list-style: none; }
+  .decisions li { display: grid; grid-template-columns: 70px 1fr; gap: 12px; padding: 0 0 28px; }
+  .decisions .n { font: 900 3rem/0.9 var(--stencil); color: rgba(255,176,32,.45); }
+  .decisions b { display: block; color: var(--ink); font-weight: 600; font-size: 1.05rem; }
+  .decisions span { color: var(--ink-2); }
 
-  /* ficha técnica como rider */
-  .rider { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: .92rem; }
-  .rider th, .rider td { text-align: left; padding: 10px 12px; border: 1px solid var(--line); vertical-align: top; }
-  .rider th { width: 32%; font: 600 .75rem var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--dim); background: var(--panel); }
-  .rider td { color: var(--ink-2); }
+  /* ── Rider en prosa ── */
+  .rider { margin: 26px 0 0; }
+  .rider div { padding: 10px 0; }
+  .rider dt { font: 1rem var(--marker); color: var(--amber); }
+  .rider dd { margin: 0; color: var(--ink-2); max-width: 64ch; }
 
-  /* cierre */
-  .cta { margin: 72px 0 0; padding: 40px 0 64px; border-top: 2px solid var(--amber); }
-  .cta h2 { margin-bottom: 10px; }
-  .cta p { color: var(--ink-2); margin: 0 0 18px; max-width: 60ch; }
-  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
-  .btn { font: 600 .85rem var(--mono); text-decoration: none; padding: 11px 16px; border-radius: 3px; border: 1px solid var(--amber); }
-  .btn.solid { background: var(--amber); color: #111; }
-  .btn:hover { filter: brightness(1.1); }
+  /* ── Cierre ── */
+  .cta { margin-top: 110px; padding: 70px 0 90px; background: var(--amber); color: #111; }
+  .cta h2 { color: #111; }
+  .cta p { color: #2a2414; max-width: 56ch; font-size: 1.1rem; margin: 0 0 26px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px 26px; align-items: center; }
+  .btn { font: 600 1rem var(--body); color: #111; }
+  .btn.solid { background: #111; color: var(--amber); text-decoration: none; padding: 13px 22px; border-radius: 2px; }
+  .cta a:focus-visible { outline-color: #111; }
 </style>
 </head>
 <body>
@@ -165,143 +151,131 @@
 <header class="hero">
   <img src="img/bar-montaje.jpg" width="1220" height="1626" alt="El bar con la pantalla de video al fondo del escenario y el aro de luces en el techo">
   <div class="wrap">
-    <span class="tag"><i aria-hidden="true"></i>En uso · v3.0.0</span>
-    <h1>Loop<br><span>Video, luces y audio</span><br>en una tablet</h1>
+    <span class="live"><i aria-hidden="true"></i>En uso · v3.0.0</span>
+    <h1>Loop<br><em>video, luces y audio</em><br>en una tablet</h1>
     <p>Un bar quería que sus luces siguieran al video y a la música. Diseñé, programé e
       instalé el software que conecta las tres consolas. Después lo compró una empresa de
       eventos.</p>
   </div>
 </header>
 
-<main class="wrap">
-
-  <div class="stats" role="list">
-    <div role="listitem"><b>3</b><span>programas integrados</span></div>
-    <div role="listitem"><b>4</b><span>protocolos: OSC, Art-Net, UDP, Socket.IO</span></div>
-    <div role="listitem"><b>12/12</b><span>pruebas automáticas en verde</span></div>
-    <div role="listitem"><b>1 .exe</b><span>se instala copiando una carpeta</span></div>
+<main>
+  <div class="wrap">
+    <ul class="stats">
+      <li><b>3</b>programas que antes no se hablaban</li>
+      <li><b>4</b>protocolos: OSC, Art-Net, UDP y Socket.IO</li>
+      <li><b>12/12</b>pruebas automáticas en verde</li>
+      <li><b>1</b>ejecutable: se instala copiando una carpeta</li>
+    </ul>
   </div>
 
-  <section class="cue">
-    <div class="cue-n">CUE<b>01</b>el encargo</div>
-    <div>
+  <section>
+    <div class="wrap">
+      <span class="tape">el encargo</span>
       <h2>Lo que pidió el cliente</h2>
       <p>En el bar, el video (Resolume), las luces (Onyx) y el audio (Reaper) corrían en
         programas y equipos separados. Cada cambio de ambiente necesitaba a alguien en cada
         consola, y las luces no tenían idea de lo que pasaba en la pantalla.</p>
-      <div class="brief">
-        <div>
-          <h3>Pedido</h3>
-          <ul>
-            <li>Que las luces reaccionen a la música</li>
-            <li>Que sigan a lo que pasa en la pantalla</li>
-            <li>Manejar el show sin ir de consola en consola</li>
-          </ul>
-        </div>
-        <div class="ok">
-          <h3>✔ Entregado</h3>
-          <ul>
-            <li>Los estrobos siguen en tiempo real a la capa de video</li>
-            <li>El panel muestra el color que está saliendo en pantalla</li>
-            <li>Escenas, flashes y pistas desde una tablet, o desde varias a la vez</li>
-          </ul>
-        </div>
-      </div>
+      <ul class="ask">
+        <li><span class="q">"Que las luces reaccionen a la música"</span><span class="arrow" aria-hidden="true">→</span><span class="a">Los estrobos siguen en tiempo real a la capa de video que se mueve con la música</span></li>
+        <li><span class="q">"Que sigan lo que pasa en la pantalla"</span><span class="arrow" aria-hidden="true">→</span><span class="a">Loop lee el color del video y lo muestra en el panel</span></li>
+        <li><span class="q">"No ir de consola en consola"</span><span class="arrow" aria-hidden="true">→</span><span class="a">Escenas, flashes y pistas desde una tablet, o desde varias a la vez</span></li>
+      </ul>
     </div>
   </section>
 
-  <section class="cue">
-    <div class="cue-n">CUE<b>02</b>mi rol</div>
-    <div>
+  <section>
+    <div class="wrap">
+      <span class="tape">mi rol</span>
       <h2>De punta a punta, solo</h2>
-      <div class="role">
-        <div><b>Levantamiento</b><span>Hablé con el dueño y bajé el pedido a reglas concretas.</span></div>
-        <div><b>Arquitectura</b><span>Un programa en el medio que traduce entre protocolos.</span></div>
-        <div><b>Código</b><span>Backend en TypeScript, panel web y pruebas.</span></div>
-        <div><b>Programación de luces</b><span>Cuelists y efectos en Onyx para que respondieran.</span></div>
-        <div><b>Instalación</b><span>Montaje en el bar y ajuste durante los shows.</span></div>
-        <div><b>Producto</b><span>Lo llevé a una v3 que otra empresa pudiera usar.</span></div>
+      <ul class="checks">
+        <li><b>Levantamiento</b>Hablé con el dueño y bajé el pedido a reglas concretas.</li>
+        <li><b>Arquitectura</b>Un programa en el medio que traduce entre protocolos.</li>
+        <li><b>Código</b>Backend en TypeScript, panel web y pruebas.</li>
+        <li><b>Programación de luces</b>Cuelists y efectos en Onyx para que respondieran.</li>
+        <li><b>Instalación</b>Montaje en el bar y ajuste durante los shows.</li>
+        <li><b>Producto</b>Lo llevé a una v3 que otra empresa pudiera usar.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="tape">funcionando</span>
+      <h2>La prueba</h2>
+      <p>En el laboratorio, antes de instalarlo: suena la música, Resolume pone el video y en
+        la vista 3D de Onyx las luces responden.</p>
+      <figure class="film">
+        <video src="img/lab.mp4" poster="img/lab.jpg" width="848" height="480" controls muted loop playsinline preload="none" aria-label="Prueba de Loop en laboratorio"></video>
+        <figcaption class="note">13 de marzo de 2026 · el video va sin sonido</figcaption>
+      </figure>
+      <div class="pinned">
+        <img src="img/luces-onyx.jpg" width="1220" height="1626" loading="lazy" alt="Portátil con Onyx abierto, programando los efectos de las cabezas móviles">
+        <div>
+          <p class="note" style="margin:0 0 8px">25 de abril, en el bar</p>
+          <p>Programando en Onyx los efectos de las cabezas móviles: la otra mitad del
+            trabajo. El software manda la orden; la consola tiene que estar lista para
+            responder con algo que se vea bien.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="cue">
-    <div class="cue-n">CUE<b>03</b>evidencia</div>
-    <div>
-      <h2>Funcionando</h2>
-      <p>La prueba de laboratorio antes de instalarlo: suena la música, Resolume pone el video
-        y en la vista 3D de Onyx las luces responden.</p>
-      <div class="media">
-        <figure>
-          <video src="img/lab.mp4" poster="img/lab.jpg" width="848" height="480" controls muted loop playsinline preload="none"></video>
-          <figcaption><b>13·03·2026</b> prueba en laboratorio · sin sonido</figcaption>
-        </figure>
-        <figure>
-          <img class="tall" src="img/luces-onyx.jpg" width="1220" height="1626" loading="lazy" alt="Portátil con Onyx abierto, programando los efectos de las cabezas móviles">
-          <figcaption><b>25·04·2026</b> programando las cabezas móviles en Onyx</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="cue">
-    <div class="cue-n">CUE<b>04</b>cronología</div>
-    <div>
+  <section>
+    <div class="wrap">
+      <span class="tape">cronología</span>
       <h2>De prototipo a producto</h2>
-      <table class="cuelist">
-        <thead><tr><th>Cue</th><th>Fecha</th><th>Qué pasó</th></tr></thead>
-        <tbody>
-          <tr><td>1</td><td>13 mar 2026</td><td>Prueba en laboratorio con las tres consolas conectadas.</td></tr>
-          <tr><td>2</td><td>14 mar 2026</td><td><strong>v1.0.0</strong>: primera versión funcionando en el bar.</td></tr>
-          <tr><td>3</td><td>abr 2026</td><td>Programación de luces y ajuste en el sitio, con shows en vivo.</td></tr>
-          <tr class="go"><td>4</td><td>8 nov 2026</td><td><strong>v3.0.0</strong>: producto para Multiaudio. Configuración en un archivo, panel sin internet, PIN, estado compartido, pruebas y un .exe listo para copiar.</td></tr>
-        </tbody>
-      </table>
+      <ol class="timeline">
+        <li><span class="when">13 mar 2026</span><p>Prueba en laboratorio con las tres consolas conectadas.</p></li>
+        <li><span class="when">14 mar 2026</span><p><strong>v1.0.0</strong>: primera versión funcionando en el bar.</p></li>
+        <li><span class="when">Abril</span><p>Programación de luces y ajuste en el sitio, con shows en vivo.</p></li>
+        <li class="now"><span class="when">8 nov 2026</span><p><strong>v3.0.0</strong>: producto para Multiaudio. Configuración en un archivo, panel sin internet, PIN, estado compartido entre tablets, pruebas y un .exe listo para copiar.</p></li>
+      </ol>
     </div>
   </section>
 
-  <section class="cue">
-    <div class="cue-n">CUE<b>05</b>cómo funciona</div>
-    <div>
+  <section>
+    <div class="wrap">
+      <span class="tape">cómo funciona</span>
       <h2>Un traductor en el medio</h2>
-      <p>Cada programa habla su propio protocolo. Loop los escucha, aplica las reglas del show
-        y mantiene un solo estado que ven todas las tablets.</p>
-      <div class="diagram-box">
+      <p>Cada programa habla su propio idioma. Loop los escucha, aplica las reglas del show y
+        mantiene un solo estado que ven todas las tablets.</p>
+      <div class="scroll-x">
         <svg class="diagram" viewBox="0 0 720 300" role="img" aria-labelledby="dg-t dg-d">
           <title id="dg-t">Arquitectura de Loop</title>
           <desc id="dg-d">Resolume envía opacidad por OSC y color por Art-Net a Loop. Loop envía comandos UDP a Onyx, OSC a Reaper y UDP al PC de audio, y se comunica con las tablets por Socket.IO.</desc>
-          <rect class="box" x="10" y="40" width="170" height="70" rx="4"/>
+          <rect class="box" x="10" y="40" width="170" height="70" rx="2"/>
           <text class="label" x="95" y="70" text-anchor="middle">Resolume</text>
           <text class="sub" x="95" y="90" text-anchor="middle">video</text>
-          <rect class="box" x="10" y="190" width="170" height="70" rx="4"/>
+          <rect class="box" x="10" y="190" width="170" height="70" rx="2"/>
           <text class="label" x="95" y="220" text-anchor="middle">Tablets</text>
           <text class="sub" x="95" y="240" text-anchor="middle">panel web, con PIN</text>
-          <rect class="core" x="280" y="100" width="160" height="100" rx="4"/>
-          <text class="core-label" x="360" y="145" text-anchor="middle">LOOP</text>
-          <text class="core-sub" x="360" y="166" text-anchor="middle">loop.exe + config</text>
-          <rect class="box" x="540" y="20" width="170" height="62" rx="4"/>
+          <rect class="core" x="280" y="100" width="160" height="100" rx="2"/>
+          <text class="core-label" x="360" y="152" text-anchor="middle">LOOP</text>
+          <text class="core-sub" x="360" y="174" text-anchor="middle">loop.exe + config</text>
+          <rect class="box" x="540" y="20" width="170" height="62" rx="2"/>
           <text class="label" x="625" y="47" text-anchor="middle">Onyx</text>
           <text class="sub" x="625" y="66" text-anchor="middle">luces</text>
-          <rect class="box" x="540" y="119" width="170" height="62" rx="4"/>
+          <rect class="box" x="540" y="119" width="170" height="62" rx="2"/>
           <text class="label" x="625" y="146" text-anchor="middle">Reaper</text>
           <text class="sub" x="625" y="165" text-anchor="middle">audio</text>
-          <rect class="box" x="540" y="218" width="170" height="62" rx="4"/>
+          <rect class="box" x="540" y="218" width="170" height="62" rx="2"/>
           <text class="label" x="625" y="245" text-anchor="middle">PC de audio</text>
           <text class="sub" x="625" y="264" text-anchor="middle">presets</text>
           <path class="wire" d="M180 75 C 230 75, 230 125, 280 125"/>
-          <text class="proto" x="186" y="58">OSC + Art-Net</text>
+          <text class="proto" x="182" y="56">OSC + Art-Net</text>
           <path class="wire" d="M180 225 C 230 225, 230 175, 280 175"/>
-          <text class="proto" x="196" y="270">Socket.IO</text>
+          <text class="proto" x="190" y="272">Socket.IO</text>
           <path class="wire" d="M440 125 C 490 125, 490 51, 540 51"/>
-          <text class="proto" x="470" y="84">UDP</text>
+          <text class="proto" x="468" y="82">UDP</text>
           <path class="wire" d="M440 150 L 540 150"/>
-          <text class="proto" x="474" y="143">OSC</text>
+          <text class="proto" x="472" y="142">OSC</text>
           <path class="wire" d="M440 175 C 490 175, 490 249, 540 249"/>
-          <text class="proto" x="470" y="222">UDP</text>
+          <text class="proto" x="468" y="226">UDP</text>
         </svg>
       </div>
 
-      <p class="file">src/show.ts · las luces siguen al video</p>
+      <p class="code-h">así siguen las luces al video · src/show.ts</p>
 <pre><code><span class="c">/** La opacidad de la capa de video maneja los estrobos. */</span>
 <span class="k">onOpacity</span>(opacity: number): void {
   this.markResolumeOnline();
@@ -313,7 +287,7 @@
   this.lights.setLevel(this.config.onyx.strobeCuelist, level);
 }</code></pre>
 
-      <p class="file">npm test</p>
+      <p class="code-h">y así se comprueba · npm test</p>
 <pre><code><span class="ok">✔</span> la opacidad mueve los estrobos solo si cambia y si la automatización está activa
 <span class="ok">✔</span> los botones usan los comandos de la configuración
 <span class="ok">✔</span> rechaza botones y pistas que no existen
@@ -323,53 +297,54 @@
     </div>
   </section>
 
-  <section class="cue">
-    <div class="cue-n">CUE<b>06</b>decisiones</div>
-    <div>
+  <section>
+    <div class="wrap">
+      <span class="tape">decisiones</span>
       <h2>Pensado para un show en vivo</h2>
       <p>En un show no hay "volver a intentar". Estas decisiones salen de eso:</p>
       <ol class="decisions">
-        <li><div><b>La tablet manda botones, no comandos.</b>
+        <li><span class="n">01</span><div><b>La tablet manda botones, no comandos.</b>
           <span>El panel dice "escena 3" y el servidor decide qué sale según la configuración. Alguien en el wifi del club no puede mandarle cualquier cosa a las luces.</span></div></li>
-        <li><div><b>Nada destructivo al arrancar.</b>
+        <li><span class="n">02</span><div><b>Nada destructivo al arrancar.</b>
           <span>Si el PC se reinicia en pleno show, Loop vuelve sin tocar lo que está en escena. Limpiar las luces pide un segundo toque.</span></div></li>
-        <li><div><b>Funciona sin internet.</b>
+        <li><span class="n">03</span><div><b>Funciona sin internet.</b>
           <span>El panel no descarga nada de afuera: en un club la red suele ser solo local.</span></div></li>
-        <li><div><b>Un paquete mal formado no tumba el show.</b>
+        <li><span class="n">04</span><div><b>Un paquete mal formado no tumba el show.</b>
           <span>Cada dato que llega por la red se valida; un mensaje OSC roto se descarta en vez de cerrar el programa.</span></div></li>
-        <li><div><b>La lógica no depende de los equipos.</b>
+        <li><span class="n">05</span><div><b>La lógica no depende de los equipos.</b>
           <span>Las reglas hablan con "luces" y "mezcla", no con Onyx o Reaper. Por eso se prueban sin equipos y se puede cambiar de consola sin reescribir el show.</span></div></li>
       </ol>
     </div>
   </section>
 
-  <section class="cue">
-    <div class="cue-n">CUE<b>07</b>ficha técnica</div>
-    <div>
-      <h2>Rider técnico</h2>
-      <table class="rider">
-        <tr><th>Lenguaje</th><td>TypeScript sobre Node.js</td></tr>
-        <tr><th>Protocolos</th><td>OSC y Art-Net (entrada desde Resolume), UDP hacia Onyx y el PC de audio, OSC hacia Reaper, Socket.IO hacia las tablets</td></tr>
-        <tr><th>Dependencias</th><td>3 en producción: express, osc, socket.io. El lector de Art-Net está escrito a mano</td></tr>
-        <tr><th>Pruebas</th><td>12 con el test runner nativo de Node: reglas del show, configuración y paquetes Art-Net</td></tr>
-        <tr><th>Entrega</th><td>Un solo ejecutable (esbuild + Node SEA) con un JSON de configuración que se valida al arrancar</td></tr>
-        <tr><th>Seguridad</th><td>PIN opcional en el panel, solo botones definidos, validación de todo lo que llega por red</td></tr>
-        <tr><th>En uso</th><td>Bar con música en vivo · Multiaudio, empresa de producción de eventos</td></tr>
-      </table>
+  <section>
+    <div class="wrap">
+      <span class="tape">rider técnico</span>
+      <h2>Ficha técnica</h2>
+      <dl class="rider">
+        <div><dt>Lenguaje</dt><dd>TypeScript sobre Node.js.</dd></div>
+        <div><dt>Protocolos</dt><dd>OSC y Art-Net de entrada desde Resolume; UDP hacia Onyx y el PC de audio; OSC hacia Reaper; Socket.IO hacia las tablets.</dd></div>
+        <div><dt>Dependencias</dt><dd>Solo 3 en producción: express, osc y socket.io. El lector de Art-Net está escrito a mano.</dd></div>
+        <div><dt>Pruebas</dt><dd>12 con el test runner nativo de Node: reglas del show, configuración y paquetes Art-Net.</dd></div>
+        <div><dt>Entrega</dt><dd>Un solo ejecutable (esbuild + Node SEA) con un JSON de configuración que se valida al arrancar.</dd></div>
+        <div><dt>Seguridad</dt><dd>PIN opcional en el panel, solo botones definidos y validación de todo lo que llega por la red.</dd></div>
+        <div><dt>En uso</dt><dd>Un bar con música en vivo y Multiaudio, empresa de producción de eventos.</dd></div>
+      </dl>
     </div>
   </section>
 
   <div class="cta">
-    <h2>¿Tienes equipos que no se hablan?</h2>
-    <p>Integro hardware y software de eventos, y automatizo procesos de negocio. Escríbeme
-      y lo vemos.</p>
-    <div class="btns">
-      <a class="btn solid" href="mailto:f1000161620@gmail.com">Escribirme</a>
-      <a class="btn" href="https://github.com/devmaiter/loop-av-middleware" target="_blank" rel="noopener">Ver el código</a>
-      <a class="btn" href="../">Volver al portafolio</a>
+    <div class="wrap">
+      <h2>¿Tienes equipos que no se hablan?</h2>
+      <p>Integro hardware y software de eventos, y automatizo procesos de negocio. Escríbeme
+        y lo vemos.</p>
+      <div class="btns">
+        <a class="btn solid" href="mailto:f1000161620@gmail.com">Escribirme</a>
+        <a class="btn" href="https://github.com/devmaiter/loop-av-middleware" target="_blank" rel="noopener">Ver el código</a>
+        <a class="btn" href="../">Volver al portafolio</a>
+      </div>
     </div>
   </div>
-
 </main>
 </body>
 </html>
