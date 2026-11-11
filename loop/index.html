@@ -87,7 +87,7 @@
   .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
   figure { margin: 0; }
   figure img, .photo-slot {
-    display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover;
+    display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover;
     border-radius: 10px; border: 1px solid var(--hairline); background: var(--card);
   }
   .photo-slot {
@@ -158,7 +158,8 @@
         <h3>Problema</h3>
         <p>En el bar, el video, las luces y el audio estaban en programas y equipos
         distintos. Cada cambio de ambiente necesitaba a alguien en cada consola, y las
-        luces no seguían lo que pasaba en la pantalla.</p>
+        luces no seguían lo que pasaba en la pantalla. El cliente quería que las luces
+        reaccionaran a la música y a los colores del video.</p>
       </div>
       <div class="card">
         <h3>Solución</h3>
@@ -168,7 +169,8 @@
       </div>
       <div class="card">
         <h3>Resultado</h3>
-        <p>El dueño del bar quedó satisfecho y <strong>Multiaudio</strong> lo adoptó
+        <p>La integración funcionó como pedía el cliente: <strong>las luces quedaron
+        siguiendo al video y a la música</strong>. El dueño del bar quedó satisfecho y <strong>Multiaudio</strong> lo adoptó
         para sus eventos. Lo instala un técnico copiando una carpeta: no hay que
         instalar nada más.</p>
       </div>
@@ -182,12 +184,18 @@
     <h2>En el sitio</h2>
     <div class="gallery">
       <figure>
-        <div class="photo-slot">Foto: el panel en la tablet durante un show</div>
-        <figcaption>El panel en la tablet</figcaption>
+        <img src="img/bar-montaje.jpg" width="1220" height="1626" loading="lazy"
+             alt="El bar con la pantalla de video al fondo del escenario y el aro de luces en el techo">
+        <figcaption>El bar: la pantalla de video y el aro de luces que Loop pone a trabajar juntos</figcaption>
       </figure>
       <figure>
-        <div class="photo-slot">Foto: el montaje en el bar</div>
-        <figcaption>Montaje en el bar</figcaption>
+        <img src="img/luces-onyx.jpg" width="1220" height="1626" loading="lazy"
+             alt="Portátil con Onyx abierto, programando los efectos de las cabezas móviles">
+        <figcaption>Programando en Onyx los efectos de las cabezas móviles</figcaption>
+      </figure>
+      <figure>
+        <div class="photo-slot">Video: la prueba en el laboratorio, antes de instalarlo</div>
+        <figcaption>Prueba en el laboratorio</figcaption>
       </figure>
       <figure>
         <div class="photo-slot">Foto: un evento de Multiaudio</div>
