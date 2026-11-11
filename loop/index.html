@@ -94,6 +94,9 @@
     display: grid; place-items: center; padding: 16px; text-align: center;
     border-style: dashed; color: var(--muted); font-size: .85rem;
   }
+  .lab-video { margin-top: 12px; }
+  .lab-video video { display: block; width: 100%; height: auto; aspect-ratio: 848 / 480;
+    border-radius: 10px; border: 1px solid var(--hairline); background: #000; }
   figcaption { font-size: .78rem; color: var(--muted); margin-top: 8px; }
 
   .diagram-card { background: var(--card); border: 1px solid var(--hairline); border-radius: 12px; padding: 20px; overflow-x: auto; }
@@ -193,15 +196,13 @@
              alt="Portátil con Onyx abierto, programando los efectos de las cabezas móviles">
         <figcaption>Programando en Onyx los efectos de las cabezas móviles</figcaption>
       </figure>
-      <figure>
-        <div class="photo-slot">Video: la prueba en el laboratorio, antes de instalarlo</div>
-        <figcaption>Prueba en el laboratorio</figcaption>
-      </figure>
-      <figure>
-        <div class="photo-slot">Foto: un evento de Multiaudio</div>
-        <figcaption>En un evento de Multiaudio</figcaption>
-      </figure>
     </div>
+    <figure class="lab-video">
+      <video src="img/lab.mp4" poster="img/lab.jpg" width="848" height="480"
+             controls muted loop playsinline preload="none"></video>
+      <figcaption>La prueba en el laboratorio, antes de instalarlo: suena la música, Resolume
+      pone el video y en la vista 3D de Onyx las luces le responden (video sin sonido).</figcaption>
+    </figure>
   </div>
 </section>
 
