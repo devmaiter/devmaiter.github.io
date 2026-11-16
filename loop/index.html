@@ -142,7 +142,12 @@
   .diagram .wire { stroke: var(--amber); stroke-width: 2; fill: none; }
   .diagram .proto { fill: var(--amber); font: 13px var(--marker); }
   .scroll-x { overflow-x: auto; }
-  .scroll-x .diagram { min-width: 620px; }
+  .scroll-x .diagram-h { min-width: 620px; }
+  .diagram-v { display: none; }
+  @media (max-width: 640px) {
+    .diagram-h { display: none; }
+    .diagram-v { display: block; width: 100%; max-width: 420px; margin: 0 auto; }
+  }
 
   /* ── Código ── */
   .code-h { font: 1rem var(--marker); color: var(--ink-2); margin: 46px 0 8px; }
@@ -279,7 +284,7 @@
       <p>Cada programa habla su propio idioma. Loop los escucha, aplica las reglas del show y
         mantiene un solo estado que ven todas las tablets.</p>
       <div class="scroll-x">
-        <svg class="diagram" viewBox="0 0 720 300" role="img" aria-labelledby="dg-t dg-d">
+        <svg class="diagram diagram-h" viewBox="0 0 720 300" role="img" aria-labelledby="dg-t dg-d">
           <title id="dg-t">Arquitectura de Loop</title>
           <desc id="dg-d">Resolume envía opacidad por OSC y color por Art-Net a Loop. Loop envía comandos UDP a Onyx, OSC a Reaper y UDP al PC de audio, y se comunica con las tablets por Socket.IO.</desc>
           <rect class="box" x="10" y="40" width="170" height="70" rx="2"/>
@@ -310,6 +315,38 @@
           <text class="proto" x="472" y="142">OSC</text>
           <path class="wire" d="M440 175 C 490 175, 490 249, 540 249"/>
           <text class="proto" x="468" y="226">UDP</text>
+        </svg>
+        <svg class="diagram diagram-v" viewBox="0 0 360 450" role="img" aria-labelledby="dgv-t dgv-d">
+          <title id="dgv-t">Arquitectura de Loop</title>
+          <desc id="dgv-d">Arriba entran Resolume, por OSC y Art-Net, y las tablets, por Socket.IO. En el medio está Loop. Abajo salen comandos UDP a Onyx, OSC a Reaper y UDP al PC de audio.</desc>
+          <rect class="box" x="10" y="10" width="160" height="64" rx="2"/>
+          <text class="label" x="90" y="38" text-anchor="middle">Resolume</text>
+          <text class="sub" x="90" y="58" text-anchor="middle">video</text>
+          <rect class="box" x="190" y="10" width="160" height="64" rx="2"/>
+          <text class="label" x="270" y="38" text-anchor="middle">Tablets</text>
+          <text class="sub" x="270" y="58" text-anchor="middle">panel web, con PIN</text>
+          <path class="wire" d="M90 74 C 90 122, 150 122, 150 170"/>
+          <text class="proto" x="6" y="142">OSC + Art-Net</text>
+          <path class="wire" d="M270 74 C 270 122, 210 122, 210 170"/>
+          <text class="proto" x="354" y="142" text-anchor="end">Socket.IO</text>
+          <rect class="core" x="100" y="170" width="160" height="96" rx="2"/>
+          <text class="core-label" x="180" y="222" text-anchor="middle">LOOP</text>
+          <text class="core-sub" x="180" y="244" text-anchor="middle">loop.exe + config</text>
+          <path class="wire" d="M150 266 C 150 323, 58 323, 58 380"/>
+          <text class="proto" x="30" y="334" text-anchor="middle">UDP</text>
+          <path class="wire" d="M180 266 L 180 380"/>
+          <text class="proto" x="188" y="330">OSC</text>
+          <path class="wire" d="M210 266 C 210 323, 302 323, 302 380"/>
+          <text class="proto" x="330" y="334" text-anchor="middle">UDP</text>
+          <rect class="box" x="4" y="380" width="108" height="64" rx="2"/>
+          <text class="label" x="58" y="408" text-anchor="middle">Onyx</text>
+          <text class="sub" x="58" y="428" text-anchor="middle">luces</text>
+          <rect class="box" x="126" y="380" width="108" height="64" rx="2"/>
+          <text class="label" x="180" y="408" text-anchor="middle">Reaper</text>
+          <text class="sub" x="180" y="428" text-anchor="middle">audio</text>
+          <rect class="box" x="248" y="380" width="108" height="64" rx="2"/>
+          <text class="label" x="302" y="408" text-anchor="middle">PC de audio</text>
+          <text class="sub" x="302" y="428" text-anchor="middle">presets</text>
         </svg>
       </div>
 
